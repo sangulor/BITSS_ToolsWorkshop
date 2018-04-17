@@ -125,7 +125,7 @@ ____
 El desarrollo de estos contenidos ha sido posible gracias al grant del Berkeley Initiative for Transparency in the Social Sciences (BITSS) at the Center for Effective Global Action (CEGA) at the University of California, Berkeley
 
 <center>
-<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoBitss.jpg" style="width: 300px;"/>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoBitss.jpg" style="width: 100px;"/>
 </center>
 
 
