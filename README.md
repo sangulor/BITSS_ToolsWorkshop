@@ -124,8 +124,9 @@ ____
 
 El desarrollo de estos contenidos ha sido posible gracias al grant del Berkeley Initiative for Transparency in the Social Sciences (BITSS) at the Center for Effective Global Action (CEGA) at the University of California, Berkeley
 
-
-<sup id="fn1">1</sup>Feriado (29 de Marzo)<a href="#ref1" >&#8593;</a>
+<center>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoBitss.jpg" style="width: 400px;"/>
+</center>
 
 
 
