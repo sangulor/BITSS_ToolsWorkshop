@@ -14,7 +14,9 @@ ____
 ### 1. INFORMACIÓN GENERAL
 
 * Año: **2018**
-* Profesor:  <a href="http://www.pucp.edu.pe/profesor/jose-manuel-magallanes/" target="_blank">Dr. José Manuel Magallanes, PhD</a> ([jmagallanes@pucp.edu.pe](mailto:jmagallanes@pucp.edu.pe))
+* Profesor:  <a href="http://www.pucp.edu.pe/profesor/jose-manuel-magallanes/" target="_blank">Dr. José Manuel Magallanes, PhD</a> ([jmagallanes@pucp.edu.pe](mailto:jmagallanes@pucp.edu.pe))<br>Profesor del Departamento de Ciencias Sociales, Pontificia Universidad Católica del Peru.<br>
+Senior Data Scientist del eScience Institute and Visiting Professor at Evans School of Public Policy and Governance, University of Washington.<br>
+Fellow Catalyst, Berkeley Initiative for Transparency in Social Sciences, UC Berkeley.
 
 ____
 <a id='part2'></a>
