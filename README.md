@@ -1,5 +1,5 @@
 
-# <center> Herramientas Computacionales para la Investigación Interdisciplinaria Reproducible</center>
+# <center> Herramientas Computacionales <br></br>para la Investigación Interdisciplinaria Reproducible</center>
 
 <a id='beginning'></a>
 ### Contenidos
@@ -87,6 +87,7 @@ ____
 </td>
 <td>Material</td>
 </tr>
+
 <tr>
 <td>Introducción al Python</td>
 <td>Material</td>  
@@ -125,9 +126,19 @@ ____
 El desarrollo de estos contenidos ha sido posible gracias al grant del Berkeley Initiative for Transparency in the Social Sciences (BITSS) at the Center for Effective Global Action (CEGA) at the University of California, Berkeley
 
 <center>
-<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoBitss.jpg" style="width: 100px;"/>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoBitss.jpg" style="width: 200px;"/>
 </center>
 
+**RECONOMIENTO**
 
+EL Dr. Magallanes agradece a la Pontificia Universidad Católica del Perú, por su apoyo en la elaboración de este trabajo.
+
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoPUCP.jpg" style="width: 100px;"/>
+</center>
+
+Así mismo, el autor reconoce el apoyo que el eScience Institute de la Universidad de Washington le ha brindado desde el 2015 para desarrollar su investigación en Ciencia de Datos.
+
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoES.jpg" style="width: 100px;"/>
+</center>
 
 [INICIO](#beginning)
