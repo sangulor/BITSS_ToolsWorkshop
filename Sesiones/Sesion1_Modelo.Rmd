@@ -14,7 +14,18 @@ Este curso plantea apoyarte durante el proceso de investigación interdisciplina
 
 Cada herramienta tiene una función determinada, sin embargo, a lo largo del curso, veremos cómo podemos integrarlas de una manera sencilla.
 
-Para ello, les planteamos que podríamos abstraer el proceso de investigación según lo describe la figura 1.
+Para ello, les planteamos que podríamos abstraer el proceso de investigación según lo describe la Figura 1.
 
 ![](pics/modelo.png)
+
+Los elementos de la Figura 1 se dividen en dos grupos. En la parte superior figuran los grandes componentes:
+
+* Definición del problema de investigación.
+* Revisión de la literatura.
+* Diseño del plan de investigación.
+* Prueba de hipótesis.
+* Publicación de resultados.
+
+No he puesto 
+
 
