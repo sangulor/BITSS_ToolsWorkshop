@@ -18,6 +18,7 @@ Para ello, les planteamos que podríamos abstraer el proceso de investigación s
 
 ![](pics/modelo.png)
 
+
 Los elementos de la Figura 1 se dividen en dos grupos. En la parte superior figuran los grandes componentes:
 
 * Definición del problema de investigación.
@@ -26,6 +27,28 @@ Los elementos de la Figura 1 se dividen en dos grupos. En la parte superior figu
 * Prueba de hipótesis.
 * Publicación de resultados.
 
-No he puesto 
+No he puesto una secuencia entre estos componentes, pues es evidente que hay una serie de idas y venidas entre estos. En todo caso no es mi intención discutir el orden de éstos, sino más bien ver qué herramientas podemos utilizar para  automatizar las diversas tareas relacionadas con cada una de ellas. Nótese que a cada componente se le ha asignado un color, y ese mismo color tienen las tareas ahí explicitadas; sin embargo, el hecho de no asignarle tareas al componente de definición de problema de investigación es por que este curso considera que ya sabes qué problema de investigación tienes. 
+
+Así, he designado como automatizables diversas tareas. Y esto lo he decidido pues detrás de cada una hay alguna herramienta computacional que nos puede apoyar:
+
+* Registrar referencias en una base de datos. Esto debe ser de tal manera que permita guardar los metadatos de diversos tipos de *documentos*: libros, revistas, videos, etc. 
+* Incluir referencias en el documento. Poder hacer referencia cruzada entre la cita y la referencia; asi como tener la flexibilidad debe mostrar diversos sistemas de referencia (APA, Chicago, IEEE, Vancouver, etc.)
+* Conseguir los datos mediante procesos diversos (experimentales y no experimentales), incluyendo procesos de *scrapeado*.
+* Preparar los datos, dándole el formato adecuado para que la técnica prevista sea aplicada. Ello varía si se piensa en modelos transversales, longitudinales, jerárquicos, redes, texto, mapas, entre otros. Esto amerita además procesos de integración de tablas de datos, así como la verificación que los datos sean consistentes con la escala de medida que representan.
+* Organizar el archivo, es decir, decidir dónde se guardará los datos, tanto la original como la procesada; y cómo se accederá a ella, tanto los colaboradores como quien desee auditar.
+* Probar modelos
+* Actualizar estadísticos
+* Actualizar tablas
+* Actualizar gráficos
+* Brindar interfaz visual
+* Producir documento
+
+
+
+
+
+
+
+
 
 
