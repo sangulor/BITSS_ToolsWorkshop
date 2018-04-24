@@ -32,17 +32,29 @@ No he puesto una secuencia entre estos componentes, pues es evidente que hay una
 Así, he designado como automatizables diversas tareas. Y esto lo he decidido pues detrás de cada una hay alguna herramienta computacional que nos puede apoyar:
 
 * Registrar referencias en una base de datos. Esto debe ser de tal manera que permita guardar los metadatos de diversos tipos de *documentos*: libros, revistas, videos, etc. 
-* Incluir referencias en el documento. Poder hacer referencia cruzada entre la cita y la referencia; asi como tener la flexibilidad debe mostrar diversos sistemas de referencia (APA, Chicago, IEEE, Vancouver, etc.)
-* Conseguir los datos mediante procesos diversos (experimentales y no experimentales), incluyendo procesos de *scrapeado*.
-* Preparar los datos, dándole el formato adecuado para que la técnica prevista sea aplicada. Ello varía si se piensa en modelos transversales, longitudinales, jerárquicos, redes, texto, mapas, entre otros. Esto amerita además procesos de integración de tablas de datos, así como la verificación que los datos sean consistentes con la escala de medida que representan.
-* Organizar el archivo, es decir, decidir dónde se guardará los datos, tanto la original como la procesada; y cómo se accederá a ella, tanto los colaboradores como quien desee auditar.
-* Probar modelos
-* Actualizar estadísticos
-* Actualizar tablas
-* Actualizar gráficos
-* Brindar interfaz visual
-* Producir documento
 
+* Incluir referencias en el documento. Poder hacer referencia cruzada entre la cita y la referencia; asi como tener la flexibilidad debe mostrar diversos sistemas de referencia (APA, Chicago, IEEE, Vancouver, etc.)
+
+* Conseguir los datos mediante procesos diversos (experimentales y no experimentales), incluyendo procesos de *scrapeado*. Tener en cuenta que los datos inicialmente conseguidos pueden variar, o que con el avance de la investigación suceda que se encuentran mejores proxies.
+
+* Preparar los datos, dándole el formato adecuado para que la técnica prevista sea aplicada. Ello varía si se piensa en modelos transversales, longitudinales, jerárquicos, redes, texto, mapas, entre otros. Esto amerita además procesos de integración de tablas de datos, así como la verificación que los datos sean consistentes con la escala de medida que representan.
+
+* Organizar el archivo, es decir, decidir dónde se guardará los datos, tanto la original como la procesada; y cómo se accederá a ella, tanto los colaboradores como quien desee auditar.
+
+* Probar modelos con los datos según la hipótesis planteada, considerando que por diversas razones puedes intentar modelos alternativos (como decidir entre paramétrico y no paramétrico); hasta inclusive la hipótesis puede ser modificada por lo que esta tarea no es necesariamente la planificada. Los modelos son sensibles a los datos, y los datos pueden estar siendo actualizados constantemente.
+
+* Actualizar estadísticos. Si los modelos y la data varían, los estadísticos varían; debemos tener maneras de que ello impacte lo menos posible en el documento en elaboración.
+
+* Actualizar tablas. Igual que en el caso anterior, si los datos y los modelos varían, las tablas producidas inicialmente variarán; hay que evitar que el tiempo de reedición se reduzca.
+
+* Actualizar gráficos. Este es el mismo caso que lo anteriormente mencionado, si los datos y los modelos varían, las gráficos producidas inicialmente variarán; y si son más complejos el costo de re edición aumenta. 
+
+* Brindar interfaz visual. Por lo general, se tiene la necesidad de visualizar los avances. Muchas veces el asesor o el jefe del proyecto de investigación (o el corrector de estilo) quiere ver parte del trabajo . Esta persona no tiene que saber manejar las herramientas que verán Uds en el curso, sólo quiere ver cómo va el trabajo y preparar correcciones. Una interfaz es necesaria para ello.
+
+* Producir documento. Aquí me refiero al documento final. Por lo general es un único documento pero también puede ser una colección de documentos integrados en uno solo. Hay que tener en cuenta que el *parcial*, que será el *final* es el que se irá visualizando en el interfaz, hasta que te decidas detener y poner el punto final.
+
+
+Considerese que las tablas y gráficas llevan numeración, así que más tablas y gráficas, o el cambi
 
 
 
