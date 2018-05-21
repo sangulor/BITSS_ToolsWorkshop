@@ -1,0 +1,213 @@
+<center> <h1>Herramientas Computacionales <br></br>para la Investigación Interdisciplinaria Reproducible</h1> </center>
+
+<br></br>
+
+* Profesor:  <a href="http://www.pucp.edu.pe/profesor/jose-manuel-magallanes/" target="_blank">Dr. José Manuel Magallanes, PhD</a> ([jmagallanes@pucp.edu.pe](mailto:jmagallanes@pucp.edu.pe))<br>Profesor del **Departamento de Ciencias Sociales, Pontificia Universidad Católica del Peru**.<br>
+Senior Data Scientist del **eScience Institute** and Visiting Professor at **Evans School of Public Policy and Governance, University of Washington**.<br>
+Fellow Catalyst, **Berkeley Initiative for Transparency in Social Sciences, UC Berkeley**.
+
+## Sesión 2: Introducción al R
+
+<br></br>
+
+
+
+## Part A: Control de Ejecución
+
+<a id='beginning'></a>
+
+En esta parte veremos 3 esquemas:
+
+1. [Ejecución Condicional.](#part1) 
+2. [Loops.](#part2) 
+3. [Manejo de Errores.](#part3) 
+
+----
+
+<a id='part1'></a>
+
+## Ejecución Condicional.
+
+Es la situación donde le dices a la computadora This is how you tell the computer what part of a code to execute, depending if an event is true or false.
+```{r conditionalExec, eval=FALSE}
+value=-100
+
+#condition
+if (value >= 0){ 
+  # what to do if condition is TRUE
+  rootValue=sqrt(value)
+  print (rootValue)
+} else {  
+  # what to do if condition is FALSE
+  print('Sorry, I do not compute square roots of negative numbers')
+}
+```
+Notice the use of **parenthesis** in the condition (Python does not need this). Also, the use of **{}**  to enclose the commands (Python does not need this, either). You do not need those curly braces if you have just _one_ command after the condition. If you omitted the whole **else{}** section, the program will still run, but the program will not get a message when the input is invalid.
+
+[Go to page beginning](#beginning)
+
+----
+
+<a id='part2'></a> 
+
+## Loops
+This is how you tell the computer to do something many times (and stop when it has to):
+```{r loopPrint, eval=FALSE}
+values=c(9,25,100)
+for (value in values){ # do this for each value in values
+  print(sqrt(value))
+}
+```
+You do not need to show each result, you could save the results.
+```{r loopSave, eval=FALSE}
+values=c(9,25,100)
+rootValues=c() # empty vector
+for (value in values){
+  rootValues=c(rootValues,sqrt(value)) # updating vector
+}
+# to see the results:
+rootValues
+```
+It is evident that, combining *loops* and *control of execution*, we can make better programs. For example, this code is not controlling well the process:
+```{r loopSave2, eval=FALSE}
+values=c(9,25,-100)
+rootValues=c()
+for (value in values){
+  rootValues=c(rootValues,sqrt(value))
+}
+# to see the results:
+rootValues
+```
+In the last result, R decided what to do when a negative value was input (it also sent a warning). This one does a better job:
+```{r loopSave3, eval=FALSE}
+values=c(9,25,-100,144,-72)
+rootValues=c()
+for (value in values){
+  if (value >=0){
+    rootValues=c(rootValues,sqrt(value))
+  }else {
+    print('We added a missing value, negative input detected')
+    rootValues=c(rootValues,NA)
+  }
+}
+# to see the results:
+rootValues
+```
+We are producing an ouput with the same size as input. If we omit the **else** structure, we will produce an output with smaller size than the input. 
+
+You can also use **break** when you consider the execution should stop:
+
+```{r break, eval=FALSE}
+values=c(9,25,-100,144,-72)
+rootValues=c()
+for (value in values){
+  if (value <0){
+    print('We need to stop, invalid value detected')
+    break
+  }
+  rootValues=c(rootValues,sqrt(value))
+}
+rootValues
+```
+The code above halted the program. 
+
+You can use **next** when you consider the execution should continue:
+
+```{r NEXT, eval=FALSE}
+values=list(9,NA,'1000',-100,144,-72)
+for (value in values){
+  if (is.na(value)){
+    print('missing value as input')
+    next
+  }
+  
+  if (value <0){
+    print('negative value as input')
+    next
+  }
+  
+  if (is.character(value)){
+    print('char as input')
+    next
+  }
+  rootVal=sqrt(value)
+  print(paste(rootVal,'is the root of ',value))
+}
+
+
+```
+
+The function **is.na** tests if a value represents a missing value in R. To test if a value is NOT one of the values _NA_, _NaN_, _Inf_ or _-Inf_ you can use **is.finite**. **Remember** that you need to control or avoid using arithmetics in the presence of **NA**:
+```{r, eval=FALSE}
+x=NA
+y=10
+x+10 #?
+```
+
+
+
+
+Sometimes, you want to count some particular values:
+```{r count, eval=FALSE}
+values=c(9,25,-100,144,-72)
+counterOfInvalids=0 # initializing counter
+for (value in values){
+  if (value < 0){
+    counterOfInvalids=counterOfInvalids+1 #updating counter
+  }
+}
+counterOfInvalids
+```
+You may want to save particular positions (pay attention to position differences between R and Python):
+```{r savePOs, eval=FALSE}
+values=c(9,25,-100,144,-72)
+positionInvalids=c()
+currentPosition=1  # initial position
+for (value in values){
+  if (value < 0){
+    positionInvalids=c(positionInvalids,currentPosition)
+  }
+  currentPosition=currentPosition+1 # becareful WHERE you put the 'counter'
+}
+positionInvalids 
+
+# testing:
+values[positionInvalids]
+```
+
+[Go to page beginning](#beginning)
+
+----
+
+<a id='part3'></a> 
+
+## Error Handling
+
+We have controlled errors before, using *if-else*; however, there are particular functions in R to take care of that. For example, run these simple situations:
+```{r preTryCatch, eval=FALSE}
+sqrt(-10)  # R will take care (you may or may not want that)
+sqrt(10)   # No problem
+sqrt('10') # R can not take care here
+```
+
+Now change *value* below:
+```{r tryCatch1, eval=FALSE}
+value ='100' 
+
+tryCatch(
+  #part 1: what to do if no problem
+  print(sqrt(value)),
+  #part 2: what to do if input not right for function
+  warning = function(w) {print(paste(value, "is a Wrong number!"))},
+  #part 3: what to do if input not understood
+  error = function(e) {print(paste(value,"is Not even a number!!"))} 
+  )
+```
+
+
+_____
+
+* [Go to page beginning](#beginning)
+* [Go to PART A: Data Structures in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2A_IntroToProgramming_dataStructures.html)
+* [Go to PART C: Building functions in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2C_IntroToProgramming_functions.html)
+* [Go to Course schedule](https://evansdatascience.github.io/GovernanceAnalytics/)
