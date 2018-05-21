@@ -8,11 +8,8 @@ Fellow Catalyst, **Berkeley Initiative for Transparency in Social Sciences, UC B
 
 ## Sesión 2: Introducción al R
 
-<br></br>
 
-
-
-## Part A: Control de Ejecución
+## Part B: Control de Ejecución
 
 <a id='beginning'></a>
 
@@ -28,57 +25,68 @@ En esta parte veremos 3 esquemas:
 
 ## Ejecución Condicional.
 
-Es la situación donde le dices a la computadora This is how you tell the computer what part of a code to execute, depending if an event is true or false.
+Es la situación donde el programa ejecuta alguna sección del código, dependiendo si alguna condición se cumple o no:
+
 ```{r conditionalExec, eval=FALSE}
 value=-100
 
-#condition
+#condicion
 if (value >= 0){ 
-  # what to do if condition is TRUE
+  # si es Verdadero
   rootValue=sqrt(value)
   print (rootValue)
 } else {  
-  # what to do if condition is FALSE
-  print('Sorry, I do not compute square roots of negative numbers')
+  # si es Falso
+  print('Lo lamento, no calculo raíces cuadradas de números negativos')
 }
 ```
-Notice the use of **parenthesis** in the condition (Python does not need this). Also, the use of **{}**  to enclose the commands (Python does not need this, either). You do not need those curly braces if you have just _one_ command after the condition. If you omitted the whole **else{}** section, the program will still run, but the program will not get a message when the input is invalid.
 
-[Go to page beginning](#beginning)
+Nótese el uso **parentesis** en la condición. Además, el uso de **{}**  para identificar secciones de comandos (opcional aquí por haber una sola linea de comando). Si la sección del **else{}** el programa funciona, pero no habrá mensaje de por qué no hay resultado mostrado.
+
+[Ir a inicio](#beginning)
 
 ----
 
 <a id='part2'></a> 
 
 ## Loops
-This is how you tell the computer to do something many times (and stop when it has to):
+
+Aquí le dices a la computadora cómo hacer algo muchas veces; así como indicarle cuándo dejarade hacerlo:
+
 ```{r loopPrint, eval=FALSE}
 values=c(9,25,100)
-for (value in values){ # do this for each value in values
+for (value in values){ # mientras hayan valores en 'values'
   print(sqrt(value))
 }
 ```
-You do not need to show each result, you could save the results.
+
+Arriba, el código los muestra, pero si deseas sólo guardalos:
+
 ```{r loopSave, eval=FALSE}
 values=c(9,25,100)
-rootValues=c() # empty vector
+rootValues=c() # creando vector vacío
+
 for (value in values){
   rootValues=c(rootValues,sqrt(value)) # updating vector
 }
-# to see the results:
+# si quieres verlos:
 rootValues
 ```
-It is evident that, combining *loops* and *control of execution*, we can make better programs. For example, this code is not controlling well the process:
+
+Es evidente que si combinamos  *for* e *if-else* tendremos mejores programas:
+
 ```{r loopSave2, eval=FALSE}
 values=c(9,25,-100)
 rootValues=c()
 for (value in values){
   rootValues=c(rootValues,sqrt(value))
 }
-# to see the results:
+# resultado:
 rootValues
 ```
-In the last result, R decided what to do when a negative value was input (it also sent a warning). This one does a better job:
+
+Este sería mejor:
+
 ```{r loopSave3, eval=FALSE}
 values=c(9,25,-100,144,-72)
 rootValues=c()
@@ -86,113 +94,124 @@ for (value in values){
   if (value >=0){
     rootValues=c(rootValues,sqrt(value))
   }else {
-    print('We added a missing value, negative input detected')
+    print("Puse un NA, lo verás luego...")
     rootValues=c(rootValues,NA)
   }
 }
 # to see the results:
 rootValues
 ```
-We are producing an ouput with the same size as input. If we omit the **else** structure, we will produce an output with smaller size than the input. 
 
-You can also use **break** when you consider the execution should stop:
+
+Si deseas detener la ejecución, usa **break**:
 
 ```{r break, eval=FALSE}
 values=c(9,25,-100,144,-72)
 rootValues=c()
 for (value in values){
   if (value <0){
-    print('We need to stop, invalid value detected')
+    print('Mejor me detengo, se ha ingresado un valor inválido')
     break
   }
   rootValues=c(rootValues,sqrt(value))
 }
 rootValues
 ```
-The code above halted the program. 
 
-You can use **next** when you consider the execution should continue:
+El comando **next** puede ser útil para usar toda la data aun haya errores:
 
 ```{r NEXT, eval=FALSE}
-values=list(9,NA,'1000',-100,144,-72)
+values=list(9,NA,NaN,Inf,'1000',-100,144,-72)
 for (value in values){
   if (is.na(value)){
-    print('missing value as input')
+    print('Encontré un NA o NaN...no haré nada')
     next
   }
   
+  if (is.infinite(value)){
+    print('Encontré un Inf...no haré nada')
+    next
+  }
   if (value <0){
-    print('negative value as input')
+    print('Encontré un negativo...no haré nada')
     next
   }
   
   if (is.character(value)){
-    print('char as input')
+    print('Encontré un texto...no haré nada')
     next
   }
   rootVal=sqrt(value)
-  print(paste(rootVal,'is the root of ',value))
+  print(paste(rootVal,'es la raíz de ',value))
 }
 
 
 ```
 
-The function **is.na** tests if a value represents a missing value in R. To test if a value is NOT one of the values _NA_, _NaN_, _Inf_ or _-Inf_ you can use **is.finite**. **Remember** that you need to control or avoid using arithmetics in the presence of **NA**:
+Note las diferencias para valores no numéricos:
 ```{r, eval=FALSE}
-x=NA
-y=10
-x+10 #?
+0/0 # no es NA, sino NaN
+```
+
+```{r, eval=FALSE}
+1/0 # no es NaN, sino Inf
 ```
 
 
-
-
-Sometimes, you want to count some particular values:
+A veces, quieres contar un valor particular:
 ```{r count, eval=FALSE}
 values=c(9,25,-100,144,-72)
-counterOfInvalids=0 # initializing counter
+counterOfInvalids=0 # el contador se inicializa
 for (value in values){
   if (value < 0){
-    counterOfInvalids=counterOfInvalids+1 #updating counter
+    counterOfInvalids=counterOfInvalids+1 #incremenyando contador
   }
 }
 counterOfInvalids
 ```
-You may want to save particular positions (pay attention to position differences between R and Python):
+
+Ese código te enseña a guardar posiciones:
 ```{r savePOs, eval=FALSE}
 values=c(9,25,-100,144,-72)
 positionInvalids=c()
-currentPosition=1  # initial position
+currentPosition=1  # posición inicial (de arranque)
 for (value in values){
   if (value < 0){
     positionInvalids=c(positionInvalids,currentPosition)
   }
-  currentPosition=currentPosition+1 # becareful WHERE you put the 'counter'
+  currentPosition=currentPosition+1 # atención dónde pones esto!
 }
 positionInvalids 
 
-# testing:
+# a ver:
 values[positionInvalids]
 ```
 
-[Go to page beginning](#beginning)
+[Ir a inicio](#beginning)
 
 ----
 
 <a id='part3'></a> 
 
-## Error Handling
+## Manejo de errores
 
-We have controlled errors before, using *if-else*; however, there are particular functions in R to take care of that. For example, run these simple situations:
+Hemos controlado errores antes con *if-else*; veamos unas situaciones alternativas.
+
+Primero los casos:
+
 ```{r preTryCatch, eval=FALSE}
-sqrt(-10)  # R will take care (you may or may not want that)
-sqrt(10)   # No problem
-sqrt('10') # R can not take care here
+sqrt(-10)  #NaN es el resultado
 ```
 
-Now change *value* below:
+```{r, eval=FALSE}
+sqrt('10') # no lo puede ejecutar
+```
+
+
+
+Veamos:
 ```{r tryCatch1, eval=FALSE}
-value ='100' 
+value =-100
 
 tryCatch(
   #part 1: what to do if no problem
@@ -207,7 +226,6 @@ tryCatch(
 
 _____
 
-* [Go to page beginning](#beginning)
-* [Go to PART A: Data Structures in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2A_IntroToProgramming_dataStructures.html)
-* [Go to PART C: Building functions in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2C_IntroToProgramming_functions.html)
-* [Go to Course schedule](https://evansdatascience.github.io/GovernanceAnalytics/)
+* [Ir a inicio](#beginning)
+* [Go to PART A: Estructura de Datos en R R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2A_IntroToProgramming_dataStructures.html)
+* [Menú Principal](https://magallanesjosemanuel.github.io/BITSS_ToolsWorkshop/)
