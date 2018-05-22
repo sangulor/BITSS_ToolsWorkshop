@@ -41,7 +41,7 @@ if (value >= 0){
 }
 ```
 
-Nótese el uso **parentesis** en la condición. Además, el uso de **{}**  para identificar secciones de comandos (opcional aquí por haber una sola linea de comando). Si la sección del **else{}** el programa funciona, pero no habrá mensaje de por qué no hay resultado mostrado.
+Nótese el uso **parentesis** en la condición. Además, el uso de **{}**  para identificar secciones de comandos (opcional aquí por haber una sola linea de comando). Sin la sección del **else{}** el programa funciona, pero no habrá mensaje de por qué no hay resultado mostrado.
 
 [Ir a inicio](#beginning)
 
@@ -51,7 +51,7 @@ Nótese el uso **parentesis** en la condición. Además, el uso de **{}**  para 
 
 ## Loops
 
-Aquí le dices a la computadora cómo hacer algo muchas veces; así como indicarle cuándo dejarade hacerlo:
+Aquí le dices a la computadora cómo hacer algo muchas veces; así como indicarle cuándo dejara de hacerlo:
 
 ```{r loopPrint, eval=FALSE}
 values=c(9,25,100)

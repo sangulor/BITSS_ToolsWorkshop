@@ -57,7 +57,7 @@ DetailStudent[['fullName']]
 DetailStudent$fullName
 ```
 
-Si quiers **cambiar** algun valor:
+Si quieres **cambiar** algun valor:
 
 ```{r AlteringLists, eval=FALSE}
 DetailStudent$fullName='Alfred Mayer'
@@ -91,6 +91,14 @@ Si lo que querias era dejarlo **vacío**
 DetailStudent$city=NA
 DetailStudent
 ```
+
+Para eliminar una lista:
+```{r eliminarLista, eval=FALSE}
+lista1=list(1,2,3,4)
+rm(lista1)
+lista1
+```
+
 
 **EJERCICIO**
 
@@ -218,78 +226,14 @@ caso 4: cuando hay lista, nos dice que es una lista y de qué tipos son sus elem
 str(DetailStudent)
 ```
 
-__B) Aseguraese que las misma funciones se pueden usar en ambas, y qué se obtiene__
+__B) Asegurate que las misma funciones se pueden usar en ambas, y qué se obtiene__
 
-Las comparaciones  ('>', '<', etc.), operan elemento por elemento:
-
-```{r, eval=FALSE}
-vector1=c('a','a','b')
-vector2=c('a','b','c')
-vector1>=vector2
+```{r}
+listTest=list(1,2,3,3)
+vectorTest=c(1,2,3,4,4)
+length(listTest); length(vectorTest)
 ```
 
-Si tuviesen diferentes tamaños, las comparaciones sólo funcionan si una tiene un elemento:
-```{r, eval=FALSE}
-vector3=c('a')
-vector1>vector3 
-```
-
-Lo mismo vale si son números:
-
-```{r, eval=FALSE}
-# if we have these vectors:
-numbers1=c(1,2,3)
-numbers2=c(1,2,3)
-numbers3=c(5)
-numbers4=c(1,10)
-```
-Then, these work well:
-```{r, eval=FALSE}
-# adding element by element:
-numbers1+numbers2
-
-# adding 5  to all the elements of other vector:
-numbers1+numbers3
-
-# multiplication (element by element):
-numbers1*numbers2
-
-# and this kind of multiplication:
-numbers1 * numbers3
-```
-
-Esto no funcionará:
-```{r, eval=FALSE}
-numbers1+numbers4 
-```
-
-
-En todos los casos anteriores hemos usado vectores; veamos listas:
-```{r, eval=FALSE}
-numbersL1=list(11,22,33)
-numbersL2=list(1,2,3)
-
-```
-
-...la suma NO funciona:
-```{r, eval=FALSE}
-numbersL1+numbersL2
-```
-... TAMPOCO la comparación...
-```{r, eval=FALSE}
-numbersL1>numbersL2
-```
-
-Ni esto:
-```{r, eval=FALSE}
-numbersL1*3
-```
-
-La función  __rep__ se puede usar en listas, pero mutiplica al repetir el elemento:
-
-```{r, eval=FALSE}
-rep(numbersL1,3) # repeat the list '3' times...
-```
 
 
 
@@ -311,12 +255,12 @@ ages=c(32,33,28,30)
 country=c("China", "Senegal", "Spain", "Norway")
 education=c("Bach", "Bach", "Master", "PhD")
 
-#DF es una composición de vectores:
+#DF es una composición de columnas en formato de vector:
 DF_vectors=data.frame(names,ages,country,education)
 DF_vectors
 ```
 
-También podría ser a partir de listas:
+También podría ser a partir de filas:
 ```{r}
 # Listas por fila
 row1=list(name="Qing", age=32, country="China", deg="Bach")
@@ -345,7 +289,7 @@ Este DataFrame (DF) tiene algunos problemas, pero por ahora está bien.
 
 Además de _str()_, es bueno saber que puedes usar:
 ```{r, eval=FALSE}
-# cuantas filaas y columnas tienes:
+# cuantas filas y columnas tienes:
 dim(students)
 
 #Cuantas filas
@@ -362,11 +306,15 @@ También son muy útiles las funciones __head()__, que te permite ver las filas 
 head(students,2) # 2 filas de arriba a abajo
 ```
 
-Y su antónimo tanbién está disponible:
+Y su antónimo también está disponible:
 ```{r, eval=FALSE}
 tail(students,2) # 2 filas de abajo a arriba
 ```
 
+Claro que es bueno saber qué variables tenemos:
+```{r namesVectors, eval=FALSE}
+names(students)
+```
 
 
 Tu Df es la tabla de datos a la que estás acostumbrado a utilizar. Si quieres ver algun elemento en particular:
@@ -431,7 +379,7 @@ studentsCopy$lastName=NA
 studentsCopy
 ```
 
-Y puedeo eliminarla con **NULL**:
+Y puedo eliminarla con **NULL**:
 ```{r deleteColDF, eval=FALSE}
 studentsCopy$lastName=NULL
 studentsCopy
@@ -464,11 +412,10 @@ students[students$ages>30 & students$country=='China',]
 students[students$country!="Norway",] 
 ```
 
-**¿Quién no viene de estos lugares peligrosos?**
+**¿Quién no viene de estos lugares?**
 ```{r query5, eval=FALSE}
-DangeourousPlaces=c("Peru", "USA", "Finland")
-students[students$country %in% DangeourousPlaces,] 
-students[!students$country %in% DangeourousPlaces,] # the opposite
+places=c("China", "Spain")
+students[!students$country %in% places,] 
 ```
 
 

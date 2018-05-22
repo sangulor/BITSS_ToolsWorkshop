@@ -165,7 +165,7 @@ Herramientas Computacionales <br />para la Investigación Interdisciplinaria Rep
 DetailStudent[['fullName']]
 # or
 DetailStudent$fullName</code></pre>
-<p>Si quiers <strong>cambiar</strong> algun valor:</p>
+<p>Si quieres <strong>cambiar</strong> algun valor:</p>
 <pre class="r"><code>DetailStudent$fullName='Alfred Mayer'
 # Ahora tienes:
 DetailStudent</code></pre>
@@ -182,6 +182,10 @@ DetailStudent</code></pre>
 <p>Si lo que querias era dejarlo <strong>vacío</strong></p>
 <pre class="r"><code>DetailStudent$city=NA
 DetailStudent</code></pre>
+<p>Para eliminar una lista:</p>
+<pre class="r"><code>lista1=list(1,2,3,4)
+rm(lista1)
+lista1</code></pre>
 <p><strong>EJERCICIO</strong></p>
 <ol style="list-style-type: decimal">
 <li>Crea un objeto tipo lista con tu tres datos tuyos.</li>
@@ -248,45 +252,12 @@ str(elements)</code></pre>
 <pre class="r"><code>str(newAgesGood)</code></pre>
 <p>caso 4: cuando hay lista, nos dice que es una lista y de qué tipos son sus elementos:</p>
 <pre class="r"><code>str(DetailStudent)</code></pre>
-<p><strong>B) Aseguraese que las misma funciones se pueden usar en ambas, y qué se obtiene</strong></p>
-<p>Las comparaciones (‘&gt;’, ‘&lt;’, etc.), operan elemento por elemento:</p>
-<pre class="r"><code>vector1=c('a','a','b')
-vector2=c('a','b','c')
-vector1&gt;=vector2</code></pre>
-<p>Si tuviesen diferentes tamaños, las comparaciones sólo funcionan si una tiene un elemento:</p>
-<pre class="r"><code>vector3=c('a')
-vector1&gt;vector3 </code></pre>
-<p>Lo mismo vale si son números:</p>
-<pre class="r"><code># if we have these vectors:
-numbers1=c(1,2,3)
-numbers2=c(1,2,3)
-numbers3=c(5)
-numbers4=c(1,10)</code></pre>
-<p>Then, these work well:</p>
-<pre class="r"><code># adding element by element:
-numbers1+numbers2
-
-# adding 5  to all the elements of other vector:
-numbers1+numbers3
-
-# multiplication (element by element):
-numbers1*numbers2
-
-# and this kind of multiplication:
-numbers1 * numbers3</code></pre>
-<p>Esto no funcionará:</p>
-<pre class="r"><code>numbers1+numbers4 </code></pre>
-<p>En todos los casos anteriores hemos usado vectores; veamos listas:</p>
-<pre class="r"><code>numbersL1=list(11,22,33)
-numbersL2=list(1,2,3)</code></pre>
-<p>…la suma NO funciona:</p>
-<pre class="r"><code>numbersL1+numbersL2</code></pre>
-<p>… TAMPOCO la comparación…</p>
-<pre class="r"><code>numbersL1&gt;numbersL2</code></pre>
-<p>Ni esto:</p>
-<pre class="r"><code>numbersL1*3</code></pre>
-<p>La función <strong>rep</strong> se puede usar en listas, pero mutiplica al repetir el elemento:</p>
-<pre class="r"><code>rep(numbersL1,3) # repeat the list '3' times...</code></pre>
+<p><strong>B) Asegurate que las misma funciones se pueden usar en ambas, y qué se obtiene</strong></p>
+<pre class="r"><code>listTest=list(1,2,3,3)
+vectorTest=c(1,2,3,4,4)
+length(listTest); length(vectorTest)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 5</code></pre>
 <p><a href="#beginning">Ir a inicio</a></p>
 <hr />
 <p><a id="part3"></a></p>
@@ -301,10 +272,10 @@ ages=c(32,33,28,30)
 country=c(&quot;China&quot;, &quot;Senegal&quot;, &quot;Spain&quot;, &quot;Norway&quot;)
 education=c(&quot;Bach&quot;, &quot;Bach&quot;, &quot;Master&quot;, &quot;PhD&quot;)
 
-#DF es una composición de vectores:
+#DF es una composición de columnas en formato de vector:
 DF_vectors=data.frame(names,ages,country,education)
 DF_vectors</code></pre>
-<p>También podría ser a partir de listas:</p>
+<p>También podría ser a partir de filas:</p>
 <pre class="r"><code># Listas por fila
 row1=list(name=&quot;Qing&quot;, age=32, country=&quot;China&quot;, deg=&quot;Bach&quot;)
 row2=list(name=&quot;Françoise&quot;, age=33, country=&quot;Senegal&quot;, deg=&quot;Bach&quot;)
@@ -327,7 +298,7 @@ DF_lists</code></pre>
 <pre class="r"><code>str(DF_lists)</code></pre>
 <p>Este DataFrame (DF) tiene algunos problemas, pero por ahora está bien.</p>
 <p>Además de <em>str()</em>, es bueno saber que puedes usar:</p>
-<pre class="r"><code># cuantas filaas y columnas tienes:
+<pre class="r"><code># cuantas filas y columnas tienes:
 dim(students)
 
 #Cuantas filas
@@ -338,8 +309,10 @@ length(students)</code></pre>
 <p>El comando <em>length</em> lo hemos usado en vectores and listas. En los DF, te da el numero de columnas.</p>
 <p>También son muy útiles las funciones <strong>head()</strong>, que te permite ver las filas al inicio del DF:</p>
 <pre class="r"><code>head(students,2) # 2 filas de arriba a abajo</code></pre>
-<p>Y su antónimo tanbién está disponible:</p>
+<p>Y su antónimo también está disponible:</p>
 <pre class="r"><code>tail(students,2) # 2 filas de abajo a arriba</code></pre>
+<p>Claro que es bueno saber qué variables tenemos:</p>
+<pre class="r"><code>names(students)</code></pre>
 <p>Tu Df es la tabla de datos a la que estás acostumbrado a utilizar. Si quieres ver algun elemento en particular:</p>
 <pre class="r"><code># SI [filas,columnas]
 
@@ -375,7 +348,7 @@ studentsCopy[1,]</code></pre>
 <p>Podemos tener una nueva columna con valores vacios:</p>
 <pre class="r"><code>studentsCopy$lastName=NA
 studentsCopy</code></pre>
-<p>Y puedeo eliminarla con <strong>NULL</strong>:</p>
+<p>Y puedo eliminarla con <strong>NULL</strong>:</p>
 <pre class="r"><code>studentsCopy$lastName=NULL
 studentsCopy</code></pre>
 <div id="consultas-en-data-frames" class="section level3">
@@ -389,10 +362,9 @@ studentsCopy</code></pre>
 <pre class="r"><code>students[students$ages&gt;30 &amp; students$country=='China',] </code></pre>
 <p>****¿Quién no viene de Noruega?**</p>
 <pre class="r"><code>students[students$country!=&quot;Norway&quot;,] </code></pre>
-<p><strong>¿Quién no viene de estos lugares peligrosos?</strong></p>
-<pre class="r"><code>DangeourousPlaces=c(&quot;Peru&quot;, &quot;USA&quot;, &quot;Finland&quot;)
-students[students$country %in% DangeourousPlaces,] 
-students[!students$country %in% DangeourousPlaces,] # the opposite</code></pre>
+<p><strong>¿Quién no viene de estos lugares?</strong></p>
+<pre class="r"><code>places=c(&quot;China&quot;, &quot;Spain&quot;)
+students[!students$country %in% places,] </code></pre>
 <p><strong>Muestrame el DF ordenado decrecientemente por edad</strong></p>
 <pre class="r"><code>students[order(-students$ages),]</code></pre>
 <p><strong>Muestrame el DF ordenado crecientemente, por educacion y luego por edad</strong></p>
