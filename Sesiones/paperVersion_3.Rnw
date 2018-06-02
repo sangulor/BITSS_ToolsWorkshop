@@ -20,7 +20,7 @@
 % autores
 %\renewcommand\Authand{, y }
 \author[1]{\normalsize Estrella DelCurso}
-\author[2]{\normalsize Vecino Deal Lado}
+\author[2]{\normalsize Prossimo Deal Lado}
 
 \affil[1,2]{\small  Escuela de Ingeniería,Universidad de los Andes\\
 \texttt{{delcurso,deallado}@uniandes.edu.col}}
