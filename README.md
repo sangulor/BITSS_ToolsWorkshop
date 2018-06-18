@@ -91,9 +91,16 @@ ____
 <tr>
     <td rowspan="2">Programación Reproducible</td>
     <td>Introducción al R
+<!--
 </td>
 <td>Material</td>
 </tr>
+-->
+
+<td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">GUIA</a> 
+</td>
+
+
 
 <tr>
 <td>Introducción al Python</td>
