@@ -76,7 +76,13 @@ ____
     <td rowspan="2">Modelo de interacción entre herramientas computacionales y proceso de investigación</td>
     <td>Presentación de Modelo de investigación
 </td>
+<!--
 <td>Material</td>
+-->
+
+<td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion1_Modelo.html" target="_blank">GUIA</a> 
+</td>
+
 </tr>
 
 <td>Instalación de Programas y creación de cuentas</td>

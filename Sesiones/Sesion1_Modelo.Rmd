@@ -63,11 +63,11 @@ Considera además que tantas idas y venidas durante el proceso de investigación
 
 - **R**, En este curso desarrollaremos diversas técnicas en R. Descarga R desde este [enlace](https://cran.r-project.org/). Una vez descargado e instalado, debes instalar RStudio dede [aquí](https://www.rstudio.com/products/rstudio/download/#download). RStudio es una interfaz gráfica para R, y nos servirá para crear nuestros programas y el documento integrador.
 
-- **Latex** servirá para redactar el documento en RStudio. Debes descargarlo desde este [enlace](https://www.latex-project.org/get/).
+- **Latex** servirá para redactar el documento en RStudio. Según seas usuario de Mac o Windows, debes descargarlo desde este [enlace](https://www.latex-project.org/get/).
 
 - **Anaconda** es una suite de aplicaciones para utilizar Python. La instalación de Anaconda facilitará el uso de Python, en particular Jupyter, en donde usaremos markdown para crear documentos tipo blog. Puedes descargarlo desde este [enlace](https://www.anaconda.com/download/).
 
-- **Overleaf 2** sevirá para compartir el documento que salga de RStudio. es simplemente un editor en linea de Latex con varias propiedades interesantes para permitir que un externo lea tu trabajo. Puedes descargarlo de este [enlace](https://www.overleaf.com/blog/641-try-out-overleaf-v2).
+- **Overleaf 2** sevirá para compartir el documento que salga de RStudio. es simplemente un editor en linea de Latex con varias propiedades interesantes para permitir que un externo lea tu trabajo. Puedes registrarte en este [enlace](https://www.overleaf.com/blog/641-try-out-overleaf-v2).
 
 Instala todo esto en tu máquina, veremos cada una de ellas en este curso, sobre todo R y Python, y además aprenderemos como hacerlas interactuar.
 
