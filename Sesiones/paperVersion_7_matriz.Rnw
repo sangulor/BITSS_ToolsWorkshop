@@ -9,6 +9,7 @@
 \usepackage{longtable}
 \usepackage{authblk}
 \usepackage{adjustbox}
+\usepackage{natbib}
 
 
 \title{LOS INDICES DEL MUNDO}
@@ -51,5 +52,8 @@ Comencemos viendo que hay en la sección \ref{univariada} en la página \pageref
 \input{paperVersion_7_regresion.tex}
 
 
+\bibliographystyle{apalike}
+\renewcommand{\refname}{Bibliography}
+\bibliography{Colombia}
 
 \end{document}

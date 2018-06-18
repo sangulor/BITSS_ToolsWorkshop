@@ -2,18 +2,22 @@
 
 %%%%
 % PLOTS mapas y conglomerados
+% bibliografia
 %%%%
 \usepackage[utf8]{inputenc}
 \usepackage{longtable}
 \usepackage{authblk}
 \usepackage{adjustbox}
 
+\usepackage{natbib}
+
+
 
 \title{LOS INDICES DEL MUNDO}
 % autores
 \renewcommand\Authand{, y }
 \author[1]{\normalsize Estrella DelCurso}
-\author[2]{\normalsize Vecino Deal Lado}
+\author[2]{\normalsize Prossimo Deal Lado}
 
 \affil[1,2]{\small  Escuela de Ingeniería,Universidad de los Andes\\
 \texttt{{delcurso,deallado}@uniandes.edu.col}}
@@ -57,7 +61,7 @@ En esta sección exploro cada índice. En esta sección exploro cada índice. En
 Para conocer el comportamiento de las variables se ha preparado la Tabla \ref{Tfrecuencias}, donde se describe la distribución de las modalidades de cada variable. Los números representan la situación de algun país en ese indicador, donde el mayor valor numérico es la mejor situación.
 
 % latex table generated in R 3.4.1 by xtable 1.8-2 package
-% Wed May 30 08:55:19 2018
+% Tue Jun 12 16:33:05 2018
 \begingroup\normalsize
 \begin{longtable}{llrrr}
 \caption{Tablas de Frecuencia de la variables en estudio} \\ 
@@ -119,7 +123,7 @@ Para resaltar lo anterior, tenemos la Figura \ref{barplots} en la página \pager
 Además de la distribución de los variable, es importante saber el valor central. Como los valores son de naturaleza ordinal debemos pedir la {\bf mediana} y otras medidas de posición (como los \emph{cuartiles}, los que no pediremos pues son pocos valores). La mediana de cada variable la mostramos en la Tabla \ref{stats} en la página \pageref{stats}.
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, May 30, 2018 - 08:55:20
+% Date and time: Tue, Jun 12, 2018 - 16:33:06
 \begin{table}[!htbp] \centering 
   \caption{Medidas estadísticas} 
   \label{stats} 
@@ -141,7 +145,7 @@ Democracy & 206 & 2 \\
 En este trabajo estamos interesados en el impacto de los otros indices en el nivel de Democracia. Veamos las relaciones bivariadas que tiene esta variable con todas las demás:
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, May 30, 2018 - 08:55:23
+% Date and time: Tue, Jun 12, 2018 - 16:33:09
 \begin{table}[!htbp] \centering 
   \caption{Correlación de Democracia con las demás variables} 
   \label{corrDem} 
@@ -159,7 +163,7 @@ Veamos la correlación entre las variables independientes:
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, May 30, 2018 - 08:55:23
+% Date and time: Tue, Jun 12, 2018 - 16:33:09
 \begin{table}[!htbp] \centering 
   \caption{Correlación entre variables independientes} 
   \label{corrTableX} 
@@ -195,7 +199,7 @@ Finalmente, vemos los modelos propuestos. Primero sin la libertad mundial como i
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, May 30, 2018 - 08:55:23
+% Date and time: Tue, Jun 12, 2018 - 16:33:09
 \begin{table}[!htbp] \centering 
   \caption{Modelos de Regresión} 
   \label{regresiones} 
@@ -238,7 +242,7 @@ Como se vió en la Tabla \ref{regresiones}, cuando está presente el \emph{indic
 
 Como acabamos de ver en la Tabla \ref{regresiones} en la página \pageref{regresiones}, si quisieras sintetizar la multidimensionalidad de nuestros indicadores, podríamos usar tres de las cuatro variables que tenemos (un par de las originales tiene demasiada correlación). 
 
-Así, propongo que calculemos conglomerados de países usando toda la información de tres de los indicadores. Como nuestras variables son ordinales utilizaremos variantes especiales\footnote{Para el calcula de las ditancias utilizaremos la distancia {\bf gower} y para el conglomeramiento la técnica de {\bf medoides}.}. Así, he conglomerado todos los países en tres grupos, lo cual muestro en la Figura \ref{clustmap}.
+Así, propongo que calculemos conglomerados de países usando toda la información de tres de los indicadores. Como nuestras variables son ordinales utilizaremos un proceso de conglomeración donde las distancia serán calculadas usando la medida {\bf gower} propuestas en \cite{gower_general_1971}, y para los enlazamientos usaremos la técnica de {\bf medoides} según \cite{reynolds_clustering_2006}. Los tres conglomerados se muestran en la Figura \ref{clustmap}.
 
 
 
@@ -253,5 +257,8 @@ Así, propongo que calculemos conglomerados de países usando toda la informaci�
 \caption{Paises conglomerados segun sus indicadores sociopolíticos}\label{clustmap}
 \end{figure}
 
+\bibliographystyle{apalike}
+%\renewcommand{\refname}{Bibliography}
+\bibliography{Colombia}
 
 \end{document}
