@@ -1,4 +1,10 @@
 
+
+<center>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/FacultadIngenieria.png" style="width: 400px;"/>
+</center>
+
+
 # <center> Herramientas Computacionales <br></br>para la Investigación Interdisciplinaria Reproducible</center>
 
 <a id='beginning'></a>
@@ -167,5 +173,6 @@ El autor reconoce el apoyo que el eScience Institute de la Universidad de Washin
 <center>
 <img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoES.png" style="width: 200px;"/>
 </center>
+
 
 [INICIO](#beginning)
