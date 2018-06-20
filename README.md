@@ -105,12 +105,13 @@ ____
 <tr>
 
 <td>Introducción al Python</td>
-<!--
+
 <td>Material</td> 
--->
+
+<!--
 <td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_P_EstructuraDeDatos.html" target="_blank">GUIA</a> 
 </td>
-
+-->
 
  
 </tr>
