@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Sesion2_P_EstructuraDeDatos</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Sesion3_P_PreProcesamento1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11781,7 +11781,7 @@ div#notebook {
 Senior Data Scientist del <strong>eScience Institute</strong> and Visiting Professor at <strong>Evans School of Public Policy and Governance, University of Washington</strong>.<br>
 Fellow Catalyst, <strong>Berkeley Initiative for Transparency in Social Sciences, UC Berkeley</strong>.</li>
 </ul>
-<h2 id="Sesi&#243;n-2:-Introducci&#243;n-al-Python">Sesi&#243;n 2: Introducci&#243;n al Python<a class="anchor-link" href="#Sesi&#243;n-2:-Introducci&#243;n-al-Python">&#182;</a></h2><h2 id="Part-A:-Estructura-de-Datos-en-Python">Part A: Estructura de Datos en Python<a class="anchor-link" href="#Part-A:-Estructura-de-Datos-en-Python">&#182;</a></h2>
+<h2 id="Sesi&#243;n-3:-Pre-Procesamiento-de-Datos">Sesi&#243;n 3: Pre Procesamiento de Datos<a class="anchor-link" href="#Sesi&#243;n-3:-Pre-Procesamiento-de-Datos">&#182;</a></h2><h2 id="Parte-A:-Data-Cleaning-en-Python">Parte A: Data Cleaning en Python<a class="anchor-link" href="#Parte-A:-Data-Cleaning-en-Python">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11789,105 +11789,8 @@ Fellow Catalyst, <strong>Berkeley Initiative for Transparency in Social Sciences
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a id='beginning'></a>
-Las estructuras de datos nos dicen como organizar y almacenar los datos que usamos. Tales estructuras van de lo simple a lo compuesto, y se les usa segun la necesidad particular. Veamos 4 de estas:</p>
-<ol>
-<li><a href="#part1">Listas</a> </li>
-<li><a href="#part2">Tuplas</a> </li>
-<li><a href="#part3">Dictionarios</a> </li>
-<li><a href="#part4">Data Frames</a> </li>
-</ol>
-<p>Las Listas y tuplas son estructuras simples; un <strong>Data frame</strong> (DF) es una compuesta. Los <strong>dictionarios</strong> (tcc <strong>dicts</strong>) son estructuras versatiles a pesar de su simplicidad. Los <strong>DF</strong>s necesitan la instalación de librerías adicionales (no están en la base del Python).</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr>
-<p><a id='part1'></a></p>
-<h2 id="Listas">Listas<a class="anchor-link" href="#Listas">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Las listas contienen valores de cualquier tipo simple (numérico o no numérico), y podrían ser estructuras <strong>compuestas</strong> (lista de listas). Si usamos como referencia a una hoja de calculo con datos sobre individuos, una lista podria ser una <strong>fila</strong> que tiene los datos de los individuos.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Fred Meyers&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="s2">&quot;False&quot;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>El object ‘DetailStudent’ almacena temporalmente la lista en la computadora. Los nombre pueden contener letras del alfabeto y números (y algunos caracteres de puntuación), pero no debe comenzar con un número.</p>
-<p>En el código anterior, sólo se ha pedido crear la lista. Python lo ejecuta y nada más, no tienes que esperar ningún mensaje ni resultado. Si quieres ver lo que has creado, escribelo de manera explicita, así:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;Fred Meyers&#39;, 40, &#39;False&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nota que hay varios tipos de datos en la lista:</p>
-<ul>
-<li><em>FullName</em> es texto o caracteres.</li>
-<li><em>age</em> es un numero.</li>
-<li><em>female</em> es un valor lógico.</li>
-</ul>
-<p>Para acceder a cada uno de los elemento tu lista:</p>
+<p>El pre procesamiento de datos es la parte más tediosa del proceso de investigación.</p>
+<p>Esta primera parte delata diversos problemas que se tienen con los datos reales que están en la web, como la que vemos a continuación:</p>
 
 </div>
 </div>
@@ -11897,7 +11800,37 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># primer elemento comienza con indice &#39;0&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">IPython</span>
+<span class="n">wikiLink</span><span class="o">=</span><span class="s2">&quot;https://en.wikipedia.org/wiki/List_of_freedom_indices&quot;</span> 
+<span class="n">iframe</span> <span class="o">=</span> <span class="s1">&#39;&lt;iframe src=&#39;</span> <span class="o">+</span> <span class="n">wikiLink</span> <span class="o">+</span> <span class="s1">&#39; width=700 height=350&gt;&lt;/iframe&gt;&#39;</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">iframe</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recuerda inspeccionar la tabla para encontrar algun atributo que sirva para su descarga. De ahí, continua.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># antes instala&#39;beautifulsoup4&#39;</span>
+<span class="c1"># es posible que necesites salir y volver a cargar notebook</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">wikiTables</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">wikiLink</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">flavor</span><span class="o">=</span><span class="s1">&#39;bs4&#39;</span><span class="p">,</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;wikitable sortable&#39;</span><span class="p">,})</span>
 </pre></div>
 
 </div>
@@ -11910,7 +11843,55 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># todo antes de índice 2 </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cuantas tenemos?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">wikiTables</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Hasta aquí todo parece bien. Como solo hay uno, lo traigo y comienzo a verificar 'suciedades'.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DF</span><span class="o">=</span><span class="n">wikiTables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#primera mirada</span>
+<span class="n">DF</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>La limpieza requiere estrategia. Lo primero que salta a la vista, son los <em>footnotes</em> que están en los títulos:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DF</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 
 </div>
@@ -11923,108 +11904,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># ultimo elementos</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Si quieres <strong>cambiar</strong> algun valor:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;Alfred Mayer&#39;</span>
-<span class="n">DetailStudent</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Para <strong>añadir</strong> elementos:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Seattle&#39;</span><span class="p">)</span>
-
-<span class="c1"># Ahora tienes:</span>
-<span class="n">DetailStudent</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Para <strong>borrar</strong>, se puede hacer por...</p>
-<ul>
-<li>posición</li>
-<li>valor</li>
-</ul>
-<p>Así, ante estas listas:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">elementsA</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> 
-<span class="n">elementsB</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Then:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## borrar tercer elemento</span>
-<span class="k">del</span> <span class="n">elementsA</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  
-<span class="c1"># luego:</span>
-<span class="n">elementsA</span>  <span class="c1"># </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># aqui ves que pasa cuando divido cada celda usando el caracter &#39;[&#39;</span>
+<span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12037,9 +11918,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#  borrar valor &#39;2&#39;</span>
-<span class="n">elementsB</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">elementsB</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Te das cuenta que te puedes quedar con el primer elemento cada vez que partes:</span>
+<span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12051,7 +11931,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Si lo que querias era dejarlo <strong>vacío</strong></p>
+<p>También hay que evitar espacios en blanco:</p>
 
 </div>
 </div>
@@ -12061,8 +11941,9 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudent</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span>
-<span class="n">DetailStudent</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">outSymbol</span><span class="o">=</span><span class="s1">&#39; &#39;</span> 
+<span class="n">inSymbol</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+<span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">outSymbol</span><span class="p">,</span><span class="n">inSymbol</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12074,7 +11955,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para eliminar la lista:</p>
+<p>Los números también molestan, pero están en diferentes sitios. Mejor intentemos expresiones regulares:</p>
 
 </div>
 </div>
@@ -12084,9 +11965,18 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newList</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">newList</span>
-<span class="n">newList</span> <span class="c1"># becareful!... it is gone!</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>  <span class="c1"># debe estar instalado.</span>
+
+<span class="c1"># espacios: \\s+</span>
+<span class="c1"># uno o mas numeros \\d+</span>
+<span class="c1"># bracket que abre \\[</span>
+<span class="c1"># bracket que cierra \\]</span>
+
+<span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">s+|</span><span class="se">\\</span><span class="s1">d+|</span><span class="se">\\</span><span class="s1">[|</span><span class="se">\\</span><span class="s1">]&#39;</span>
+<span class="n">nothing</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+
+<span class="c1">#substituyendo &#39;pattern&#39; por &#39;nothing&#39;:</span>
+<span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">nothing</span><span class="p">,</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12098,7 +11988,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A veces queremos eliminar valores repetidos:</p>
+<p>Ya tengo nuevos titulos de columna (headers)!!</p>
 
 </div>
 </div>
@@ -12108,8 +11998,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weekdays</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="s1">&#39;T&#39;</span><span class="p">,</span><span class="s1">&#39;W&#39;</span><span class="p">,</span><span class="s1">&#39;Th&#39;</span><span class="p">,</span><span class="s1">&#39;S&#39;</span><span class="p">,</span><span class="s1">&#39;Su&#39;</span><span class="p">,</span><span class="s1">&#39;Su&#39;</span><span class="p">]</span>
-<span class="n">weekdays</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newHeaders</span><span class="o">=</span><span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">nothing</span><span class="p">,</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12121,7 +12010,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para ello tenemos la función <em>set</em>:</p>
+<p>Preparemos los cambios:</p>
 
 </div>
 </div>
@@ -12131,8 +12020,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weekdays</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">weekdays</span><span class="p">))</span>
-<span class="n">weekdays</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># veamos los cambios:</span>
+<span class="p">{</span><span class="n">old</span><span class="p">:</span><span class="n">new</span> <span class="k">for</span> <span class="n">old</span><span class="p">,</span><span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">newHeaders</span><span class="p">)}</span>
 </pre></div>
 
 </div>
@@ -12144,15 +12033,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="No-hay-vectores-en-Python?">No hay vectores en Python?<a class="anchor-link" href="#No-hay-vectores-en-Python?">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Los vectores no son parte del modulo básico de Python, por lo que necesitan que llames a <strong>numpy</strong> (<em>instálalo antes</em>):</p>
+<p>Uso un dict por si hubieses querido cambiar solo algunas columnas:</p>
 
 </div>
 </div>
@@ -12162,33 +12043,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">vector</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">vector</span> <span class="c1"># aquí hay coerción pues solo debe haber un tipo de datos</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Los nombres de los vectores siguen las mismas reglas que para las listas.</p>
-<p>Acceder a los elementos es igual que en listas:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">changes</span><span class="o">=</span><span class="p">{</span><span class="n">old</span><span class="p">:</span><span class="n">new</span> <span class="k">for</span> <span class="n">old</span><span class="p">,</span><span class="n">new</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">DF</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">newHeaders</span><span class="p">)}</span>
+<span class="n">DF</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">changes</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12201,8 +12057,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mf">1.5</span>
-<span class="n">vector</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ahora tenemos:</span>
+<span class="n">DF</span>
 </pre></div>
 
 </div>
@@ -12214,16 +12070,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Por lo anterior, nótese que ya que el vector es de textos, se coercionará a texto cada valor numérico ingresado.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Para añadir elementos, también se usa <em>append</em>, pero algo diferente:</p>
+<p>Las columnas son categorías, veamos si todas se han escrito de la manera correcta:</p>
 
 </div>
 </div>
@@ -12233,58 +12080,46 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vectora</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">vectorb</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;3&#39;</span><span class="p">])</span>
-<span class="n">vectora</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vectora</span><span class="p">,</span><span class="n">vectorb</span><span class="p">)</span>
-<span class="n">vectora</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DF</span><span class="o">.</span><span class="n">FreedomintheWorld</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Para eliminar elementos:</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vectorc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">])</span>
-<span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
-
-<span class="n">vectorc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">vectorc</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
-<span class="n">vectorc</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DF</span><span class="o">.</span><span class="n">IndexofEconomicFreedom</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>También hay manera de eliminar valores duplicados:</p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">33</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DF</span><span class="o">.</span><span class="n">PressFreedomIndex</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DF</span><span class="o">.</span><span class="n">DemocracyIndex</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12296,7 +12131,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#beginning">Ir a inicio</a></p>
+<p>Pues hasta aquí está conforme. Veamos otro caso.</p>
 
 </div>
 </div>
@@ -12306,16 +12141,6 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><a id='part2'></a></p>
-<h2 id="Tuplas">Tuplas<a class="anchor-link" href="#Tuplas">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Al principio parace que fueran listas:</p>
 
 </div>
 </div>
@@ -12325,7 +12150,9 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudentaTuple</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Fred Meyers&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="s2">&quot;False&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhCol</span><span class="o">=</span><span class="s2">&quot;https://www.datosmacro.com/idh/colombia&quot;</span> 
+<span class="n">iframe</span> <span class="o">=</span> <span class="s1">&#39;&lt;iframe src=&#39;</span> <span class="o">+</span> <span class="n">idhCol</span> <span class="o">+</span> <span class="s1">&#39; width=700 height=350&gt;&lt;/iframe&gt;&#39;</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">iframe</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12337,7 +12164,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para crearlas puedes usar '(  )', el comando <em>tuple()</em> o nada:</p>
+<p>Luego de inspeccionar la tabla, podemos traerla:</p>
 
 </div>
 </div>
@@ -12347,7 +12174,36 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudentbTuple</span><span class="o">=</span><span class="s1">&#39;Michael Nelson&#39;</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="s1">&#39;True&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">webTable</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">idhCol</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">flavor</span><span class="o">=</span><span class="s1">&#39;bs4&#39;</span><span class="p">,</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;tb0&#39;</span><span class="p">,})</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">webTable</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT</span><span class="o">=</span><span class="n">webTable</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">idhColT</span>
 </pre></div>
 
 </div>
@@ -12359,7 +12215,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>La gran diferencia es que una vez creadas, ninguno de sus valores se puede modificar:</p>
+<p>El problema es que se borraron los decimales. Como se ve en la web, estos tenían una coma en vez de un punto. A esta altura podemos eliminarlo, o buscar si durante el proceso de colección se puede mejorar esto; dale una mirada a la función:</p>
 
 </div>
 </div>
@@ -12369,8 +12225,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># genera error</span>
-<span class="n">DetailStudentbTuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">50</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>pd.read_html
 </pre></div>
 
 </div>
@@ -12382,18 +12237,55 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#beginning">Ir a inicio</a></p>
+<p>Siguiendo las instrucciones escibimos:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">idhCol</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">flavor</span><span class="o">=</span><span class="s1">&#39;bs4&#39;</span><span class="p">,</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;tb0&#39;</span><span class="p">,},</span>
+                      <span class="n">thousands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">idhColT</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>El ranking no es un numero, pues el símbolo lo evita, eliminemoslo (<a href="https://ascii.cl/es/codigos-html.htm">revisar</a>):</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Ranking IDH&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">idhColT</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;Ranking IDH&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">186</span><span class="p">),</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">idhColT</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<p><a id='part3'></a></p>
-<h2 id="Dicts">Dicts<a class="anchor-link" href="#Dicts">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Los Dicts, superficialmente, son lo más similares a las listas de R:</p>
+<p>Traigamos una nueva tabla:</p>
 
 </div>
 </div>
@@ -12403,12 +12295,9 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># creating dict:</span>
-<span class="n">DetailStudentDict</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;fullName&#39;</span><span class="p">:</span><span class="s2">&quot;Fred Meyers&quot;</span><span class="p">,</span>
-               <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">40</span><span class="p">,</span>
-               <span class="s1">&#39;female&#39;</span><span class="p">:</span><span class="kc">False</span><span class="p">}</span>
-<span class="c1"># seeing it:</span>
-<span class="n">DetailStudentDict</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhCol2</span><span class="o">=</span><span class="s1">&#39;https://es.wikipedia.org/wiki/Anexo:Departamentos_de_Colombia_por_IDH&#39;</span>
+<span class="n">iframe</span> <span class="o">=</span> <span class="s1">&#39;&lt;iframe src=&#39;</span> <span class="o">+</span> <span class="n">idhCol2</span> <span class="o">+</span> <span class="s1">&#39; width=700 height=350&gt;&lt;/iframe&gt;&#39;</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="n">iframe</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12420,7 +12309,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pero no tienen índices:</p>
+<p>Aparentemente sabemos qué hacer:</p>
 
 </div>
 </div>
@@ -12430,7 +12319,9 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudentDict</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">idhCol2</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">flavor</span><span class="o">=</span><span class="s1">&#39;bs4&#39;</span><span class="p">,</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;sortable&#39;</span><span class="p">,},</span>
+                       <span class="n">thousands</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">idhColT2</span>
 </pre></div>
 
 </div>
@@ -12442,7 +12333,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pare ver un elemento, tienes que saber el nombre de su campo ('key'):</p>
+<p>Aparentemente, sólo Boyacá tenía espacios en blanco.</p>
+<p>En este caso, el primer problema es que los miles marcados con <em>espacios</em> no desaparecieron. Eso se debe a que en el html están señalados como <strong>&amp; nbsp;</strong>. De ahi que:</p>
 
 </div>
 </div>
@@ -12452,7 +12344,9 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudentDict</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">idhCol2</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">flavor</span><span class="o">=</span><span class="s1">&#39;bs4&#39;</span><span class="p">,</span><span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;sortable&#39;</span><span class="p">,},</span>
+                       <span class="n">thousands</span><span class="o">=</span><span class="nb">chr</span><span class="p">(</span><span class="mi">160</span><span class="p">),</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">idhColT2</span>
 </pre></div>
 
 </div>
@@ -12464,7 +12358,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A partor de ahi, puedes hacer las operaciones comunes:</p>
+<p>Pues, Boyacá es ahora el problema. Eso lo resolveremos fuera de la llamada:</p>
 
 </div>
 </div>
@@ -12474,8 +12368,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DetailStudentDict</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">81</span>
-<span class="n">DetailStudentDict</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">=</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;\s&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">idhColT2</span>
 </pre></div>
 
 </div>
@@ -12487,15 +12381,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Listas-versus-Tuplas-vs-Dicts?">Listas versus Tuplas vs Dicts?<a class="anchor-link" href="#Listas-versus-Tuplas-vs-Dicts?">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>A) Aseguráte de saber qué tienes:</strong></p>
+<p>Los nombres de columnas necesitan tratamiento, podríamos usar lo que ya vimos:</p>
 
 </div>
 </div>
@@ -12505,33 +12391,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">DetailStudentDict</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">DetailStudent</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">DetailStudentaTuple</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">nothing</span><span class="p">,</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">idhColT2</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12543,7 +12403,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>B) Asegúrate que las funciones se pueden compartir</strong></p>
+<p>O mejorar el patrón:</p>
 
 </div>
 </div>
@@ -12553,10 +12413,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listTest</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">tupleTest</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">dictTest</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">}</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">listTest</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">tupleTest</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">dictTest</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern2</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">s+|</span><span class="se">\\</span><span class="s1">d+|</span><span class="se">\\</span><span class="s1">[|</span><span class="se">\\</span><span class="s1">]|</span><span class="se">\\</span><span class="s1">u200b&#39;</span>
+<span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern2</span><span class="p">,</span><span class="n">nothing</span><span class="p">,</span><span class="n">element</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">idhColT2</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12568,18 +12426,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="#beginning">Ir a inicio</a></p>
-<hr>
-<p><a id='part4'></a></p>
-<h2 id="Data-Frames">Data Frames<a class="anchor-link" href="#Data-Frames">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Los <strong>Data frames</strong> pueden interpretarse como estructuras compuestas en base a las simples. Python requiere que llamemos al <strong>pandas</strong> para usar DFs:</p>
+<p>Pero esta vez, hay <em>footnotes</em> con texto, cuando antes sólo tenía números, de ahi que jueguemos simple:</p>
 
 </div>
 </div>
@@ -12589,8 +12436,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># instálalo antes!</span>
-<span class="o">!</span>pip install pandas
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">idhColT2</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
 </pre></div>
 
 </div>
@@ -12602,7 +12448,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ahora sí llamamos a Pandas:</p>
+<p>Cambiemos con esto los <em>headers</em>:</p>
 
 </div>
 </div>
@@ -12612,28 +12458,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
-
-<span class="c1"># estas son columnas:</span>
-
-<span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Qing&quot;</span><span class="p">,</span> <span class="s2">&quot;Françoise&quot;</span><span class="p">,</span> <span class="s2">&quot;Raúl&quot;</span><span class="p">,</span> <span class="s2">&quot;Bjork&quot;</span><span class="p">]</span>
-<span class="n">ages</span><span class="o">=</span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="mi">33</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
-<span class="n">country</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="s2">&quot;Senegal&quot;</span><span class="p">,</span> <span class="s2">&quot;Spain&quot;</span><span class="p">,</span> <span class="s2">&quot;Norway&quot;</span><span class="p">]</span>
-<span class="n">education</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bach&quot;</span><span class="p">,</span> <span class="s2">&quot;Bach&quot;</span><span class="p">,</span> <span class="s2">&quot;Master&quot;</span><span class="p">,</span> <span class="s2">&quot;PhD&quot;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># las llevamos a dict:</span>
-<span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;names&#39;</span><span class="p">:</span><span class="n">names</span><span class="p">,</span> <span class="s1">&#39;ages&#39;</span><span class="p">:</span><span class="n">ages</span><span class="p">,</span> <span class="s1">&#39;country&#39;</span><span class="p">:</span><span class="n">country</span><span class="p">,</span> <span class="s1">&#39;education&#39;</span><span class="p">:</span><span class="n">education</span><span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">idhColT2</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+<span class="n">idhColT2</span>
 </pre></div>
 
 </div>
@@ -12645,7 +12471,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>...y de  dict a DF:</p>
+<p>Sucede algo similar con los contenidos de las columnas (vease 'Región Amazónica'). De ahí que:</p>
 
 </div>
 </div>
@@ -12655,9 +12481,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="c1"># check it:</span>
-<span class="n">students</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="o">=</span><span class="p">[</span><span class="n">element</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;[&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="p">]</span>
+<span class="n">idhColT2</span>
 </pre></div>
 
 </div>
@@ -12669,7 +12494,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>También podría ser a partir de filas:</p>
+<p>Ten en cuenta que la nota que acabamos de eliminar decía: <em>'Se refiere los departamentos de Amazonas, Guainia, Guaviare, Vaupés y Vichada.'</em> Una alternativa, que haremos aquí es crear esas filas:</p>
 
 </div>
 </div>
@@ -12679,18 +12504,106 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Listas por fila</span>
-<span class="n">row1</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Qing&quot;</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="s2">&quot;Bach&quot;</span><span class="p">]</span>
-<span class="n">row2</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Françoise&quot;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="s2">&quot;Senegal&quot;</span><span class="p">,</span> <span class="s2">&quot;Bach&quot;</span><span class="p">]</span>
-<span class="n">row3</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Raúl&quot;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="s2">&quot;Spain&quot;</span><span class="p">,</span> <span class="s2">&quot;Master&quot;</span><span class="p">]</span>
-<span class="n">row4</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bjork&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;Norway&quot;</span><span class="p">,</span> <span class="s2">&quot;PhD&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># nombres nuevos</span>
+<span class="n">newRows</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Amazonas&#39;</span><span class="p">,</span> <span class="s1">&#39;Guainia&#39;</span><span class="p">,</span> <span class="s1">&#39;Guaviare&#39;</span><span class="p">,</span> <span class="s1">&#39;Vaupés&#39;</span><span class="p">,</span> <span class="s1">&#39;Vichada&#39;</span><span class="p">]</span>
+</pre></div>
 
-<span class="c1">#Lista de listas de filas</span>
-<span class="n">listOfRows</span><span class="o">=</span><span class="p">[</span><span class="n">row1</span><span class="p">,</span><span class="n">row2</span><span class="p">,</span><span class="n">row3</span><span class="p">,</span><span class="n">row4</span><span class="p">]</span>
+</div>
+</div>
+</div>
 
-<span class="c1">#creandolo:</span>
-<span class="n">DF_lists</span><span class="o">=</span><span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">listOfRows</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">,</span><span class="s1">&#39;ages&#39;</span><span class="p">,</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">])</span>
-<span class="n">DF_lists</span>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Valor de Region Amazonica:</span>
+<span class="n">idhColT2</span><span class="p">[</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="o">==</span><span class="s1">&#39;Región Amazónica&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Valor de Region Amazonica como lista:</span>
+<span class="n">idhColT2</span><span class="p">[</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="o">==</span><span class="s1">&#39;Región Amazónica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Valor de Region Amazonica como lista, sin elemento 1:</span>
+<span class="n">idhColT2</span><span class="p">[</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="o">==</span><span class="s1">&#39;Región Amazónica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">info</span><span class="o">=</span><span class="n">idhColT2</span><span class="p">[</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="o">==</span><span class="s1">&#39;Región Amazónica&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># creando filas nuevas como listas:</span>
+
+<span class="p">[[</span><span class="n">row</span><span class="p">]</span> <span class="o">+</span> <span class="n">info</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">newRows</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">newData</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">row</span><span class="p">]</span> <span class="o">+</span> <span class="n">info</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">newRows</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">idhColT2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newData</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Ya que estamos satisfechos:</span>
+<span class="n">idhColT2</span><span class="o">=</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newData</span><span class="p">,</span><span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12702,7 +12615,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Tendremos un data frame? Recuerda que <strong>type</strong>  te lo dice:</p>
+<p>En el DF sobran ya tres filas, la que hemos desagregado, 'Bogota' y 'Colombia':</p>
 
 </div>
 </div>
@@ -12712,7 +12625,22 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="p">[</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Entidad</span><span class="o">.</span><span class="n">isin</span> <span class="p">([</span><span class="s1">&#39;Región Amazónica&#39;</span><span class="p">,</span><span class="s1">&#39;Colombia&#39;</span><span class="p">,</span><span class="s1">&#39;Bogotá&#39;</span><span class="p">])]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#eliminando</span>
+<span class="n">idhColT2</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">29</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">idhColT2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12724,7 +12652,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Pero Pandas da más detalles son 'dtypes':</p>
+<p>Es importante darnos cuenta que hay símbolos <em>no apropiados</em> para representar valores faltantes (i.e.'--'). Eso es preocupante, en particular para los numéricos. Juntemos ambas columnas para buscar inapropiados:</p>
 
 </div>
 </div>
@@ -12734,7 +12662,21 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numericos</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">IDH</span><span class="p">)</span>
+<span class="n">numericos</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">idhColT2</span><span class="o">.</span><span class="n">Población</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">numericos</span>
 </pre></div>
 
 </div>
@@ -12746,7 +12688,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Además de <em>dtypes()</em>, es bueno saber que puedes usar:</p>
+<p>Vemos que varios numeros está como texto, lo que por ahora no es problema. La idea es encontrar aquello que están entre los números y no lo son:</p>
 
 </div>
 </div>
@@ -12756,8 +12698,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cuantas filas y columnas tienes:</span>
-<span class="n">students</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numericos</span><span class="p">:</span>
+    <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12769,7 +12711,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>No hay función específica para saber cuantas filas o columnas hay independientemente, pero <strong>len</strong> ayuda:</p>
+<p>Hemos encontrado un simbolo que no se puede convertir a <em>float</em>. Podría haber otros, pero ya sabemos qué error arroja.</p>
+<p>De ahí que:</p>
 
 </div>
 </div>
@@ -12779,7 +12722,13 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">students</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="c1"># or students.shape[0]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inapropiados</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numericos</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">inapropiados</span><span class="p">:</span> <span class="c1"># evitar duplicados</span>
+            <span class="n">inapropiados</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12792,29 +12741,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">students</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="c1"># or students.shape[1]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>También son muy útiles las función <strong>head()</strong>, que te permite ver las filas al inicio del DF:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># aqui están</span>
+<span class="n">inapropiados</span>
 </pre></div>
 
 </div>
@@ -12826,7 +12754,8 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Y su antónimo también está disponible:</p>
+<p>Sólo había un símbolo (ya lo sabíamos), pero el código sirve para más de uno.</p>
+<p>Lo que nos queda es reemplazar ese valor por 'None':</p>
 
 </div>
 </div>
@@ -12836,7 +12765,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">inapropiados</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">inapropiados</span><span class="p">))</span> <span class="c1"># se necesita la misma cantidad de &#39;None&#39;</span>
 </pre></div>
 
 </div>
@@ -12848,7 +12777,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Claro que es bueno saber qué variables tenemos:</p>
+<p>Sabiendo como queda, hagásmoslo:</p>
 
 </div>
 </div>
@@ -12858,382 +12787,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Lo anterior no es una lista, pero si la necesitas:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Tu DF es la tabla de datos a la que estás acostumbrado a utilizar. Si quieres ver algun elemento en particular:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># una columna</span>
-<span class="n">students</span><span class="o">.</span><span class="n">names</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># or</span>
-<span class="n">students</span><span class="p">[</span><span class="s1">&#39;names&#39;</span><span class="p">]</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># # varias columnas (con posiciones)</span>
-<span class="n">students</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>  
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># varias columnas (con nombres)</span>
-<span class="n">students</span><span class="p">[[</span><span class="s1">&#39;country&#39;</span><span class="p">,</span><span class="s1">&#39;education&#39;</span><span class="p">]]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># varias columnas (con posiciones)</span>
-<span class="n">students</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># una fila</span>
-<span class="n">students</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># varias filas</span>
-<span class="n">students</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Nótese en los casos anteriores, que si no indicabas filas, tenías toda la fila; y que si no indicas columnas, vienen todas las columnas. Si solo quieres un valor:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">students</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Es muy común, y necesario, crear <strong>subsets</strong> del DF:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">studentsNoEd</span><span class="o">=</span><span class="n">students</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
-<span class="n">studentsNoEd</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Voy a hacer algunos cambios a este DF. Sin embargo, es común primero crear una copia del original:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">studentsCopy</span><span class="o">=</span><span class="n">students</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">studentsCopy</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Ahora, a la copia le hago modificaciones.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># cambio el valor de una edad:</span>
-<span class="n">studentsCopy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">23</span> <span class="c1"># No hay advertencia, el cambio ya se hizo:</span>
-<span class="n">studentsCopy</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Podemos tener una nueva columna con valores vacios</span>
-<span class="n">studentsCopy</span><span class="o">.</span><span class="n">country</span><span class="o">=</span><span class="kc">None</span>
-<span class="n">studentsCopy</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Y puedeo eliminar una columna:</span>
-<span class="n">studentsCopy</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;ages&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># axis=1 is column</span>
-<span class="n">studentsCopy</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="CONSULTAS-en-Data-Frames:"><em>CONSULTAS</em> en Data Frames:<a class="anchor-link" href="#CONSULTAS-en-Data-Frames:">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Una de las primeras cosas que hacemos con los DF es hacerle consultas:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ¿Quién es el más viejo del grupo?</span>
-<span class="n">students</span><span class="p">[</span><span class="n">students</span><span class="o">.</span><span class="n">ages</span><span class="o">==</span><span class="nb">max</span><span class="p">(</span><span class="n">students</span><span class="o">.</span><span class="n">ages</span><span class="p">)]</span><span class="o">.</span><span class="n">names</span> 
-<span class="c1">#students.loc[students[&#39;ages&#39;].idxmax()].names</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ¿Quién es el más joven del grupo?</span>
-<span class="n">students</span><span class="p">[</span><span class="n">students</span><span class="o">.</span><span class="n">ages</span><span class="o">==</span><span class="nb">min</span><span class="p">(</span><span class="n">students</span><span class="o">.</span><span class="n">ages</span><span class="p">)]</span><span class="o">.</span><span class="n">names</span> 
-<span class="c1">#students.loc[students[&#39;ages&#39;].idxmin()].names</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ¿Quién tiene más de 30 y es de China?</span>
-<span class="n">students</span><span class="p">[(</span><span class="n">students</span><span class="o">.</span><span class="n">ages</span><span class="o">&gt;</span><span class="mi">30</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">students</span><span class="o">.</span><span class="n">country</span><span class="o">==</span><span class="s1">&#39;China&#39;</span><span class="p">)]</span> <span class="c1"># parentesis requeridos</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ¿Quién no viene de Noruega?</span>
-<span class="n">students</span><span class="p">[</span><span class="n">students</span><span class="o">.</span><span class="n">country</span><span class="o">!=</span><span class="s2">&quot;Norway&quot;</span><span class="p">]</span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ¿Quién no viene de estos lugares?</span>
-
-<span class="n">places</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;China&quot;</span><span class="p">,</span> <span class="s2">&quot;Spain&quot;</span><span class="p">]</span>
-<span class="n">students</span><span class="p">[</span><span class="o">~</span><span class="n">students</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">places</span><span class="p">)]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Muestrame el DF ordenado decrecientemente por edad**</span>
-<span class="n">toSort</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ages&quot;</span><span class="p">]</span>
-<span class="n">Order</span><span class="o">=</span><span class="p">[</span><span class="kc">False</span><span class="p">]</span>
-<span class="n">students</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">toSort</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="n">Order</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Muestrame el DF ordenado crecientemente, por educacion y luego por edad</span>
-
-<span class="n">toSort</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;education&quot;</span><span class="p">,</span><span class="s2">&quot;ages&quot;</span><span class="p">]</span>
-<span class="n">Order</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span><span class="kc">True</span><span class="p">]</span>
-<span class="n">students</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">toSort</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="n">Order</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idhColT2</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">inapropiados</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">inapropiados</span><span class="p">),</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13248,7 +12802,7 @@ Las estructuras de datos nos dicen como organizar y almacenar los datos que usam
 <hr>
 <ul>
 <li><a href="#beginning">Ir a inicio</a></li>
-<li><a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_P_ControlDeEjecucion.html">Ir a Parte B: Control de Ejecución en Python</a></li>
+<li><a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion3_P_PreProcesamiento1.html">Ir a Parte B: Formateo</a></li>
 <li><a href="https://magallanesjosemanuel.github.io/BITSS_ToolsWorkshop/">Menú Principal</a></li>
 </ul>
 
