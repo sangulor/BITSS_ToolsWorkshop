@@ -1,0 +1,332 @@
+<center> <h1>Herramientas Computacionales <br></br>para la Investigación Interdisciplinaria Reproducible</h1> </center>
+
+<br></br>
+
+* Profesor:  <a href="http://www.pucp.edu.pe/profesor/jose-manuel-magallanes/" target="_blank">Dr. José Manuel Magallanes, PhD</a> ([jmagallanes@pucp.edu.pe](mailto:jmagallanes@pucp.edu.pe))<br>Profesor del **Departamento de Ciencias Sociales, Pontificia Universidad Católica del Peru**.<br>
+Senior Data Scientist del **eScience Institute** and Visiting Professor at **Evans School of Public Policy and Governance, University of Washington**.<br>
+Fellow Catalyst, **Berkeley Initiative for Transparency in Social Sciences, UC Berkeley**.
+
+## Sesión 2: Introducción al R
+
+
+## Part C: Funciones
+
+<a id='beginning'></a>
+
+
+Las funciones nos ayudan a organizar código que cumple un 'rol' específico. Así, se facilita la lectura y corrección del mismo, al crear elementos independientes. Así mismo, usando funciones verás como integrar lo visto en las secciones anteriores.
+
+Veremos tres elementos organizadores: input, transformación, output. Por ejemplo, si necesitas convertir un valor numérico de Fahrenheit en Celsius, el input is el valor en Fahrenheit, la transformación es la formula, y la output es el resultado en Celsius (u otro que corresponda).
+
+```{r funcBasic, eval=FALSE}
+# ejecutar
+converterToCelsius=function(valueInFarenheit){ #input
+  #transformacion
+  resultInCelsius= (valueInFarenheit-32)*5/9
+  #output
+  return (resultInCelsius)
+  }
+```
+
+Del ejemple anterior, veamos la sintaxis de una función. El primer element es el nombre (_converterToCelsius_) a la izquierda de **=**; luego el _input_, que es un detalla de lo que la función espera se ingrese usando la palabra reservada  **function**; de ahí, la _transformación_ se escribirá dentro de los **{}**; la última fila de la transformación tiene devuelve la  _output_ (for example: _resultInCelsius_), para lo cual se usa la palabra clave **return**. Si escribes sólo la _output_ sin usar el comando  _return_ la función aun funciona, pero disminuye su _readability_. El código ejemplo le ha dado una nueva función a R:
+
+```{r funcBasicUse, eval=FALSE}
+converterToCelsius(100)
+```
+
+He organizado los materiales de la siguiente manera:
+
+1. [Input.](#part1) 
+2. [Output.](#part2) 
+3. Aplicando funciones
+    + [a estructuras simples.](#part3) 
+    + [a estructuras compuestas.](#part4) 
+
+____
+<a id='part1'></a>
+
+## El Input
+
+El input no tiene que ser sólamente _uno_:
+```{r, eval=FALSE}
+# 2 inputs:
+XsumY=function(valueX,valueY){
+  ###
+  resultSum=valueX+valueY
+  ###
+  return (resultSum)
+}
+```
+
+
+Veamos cómo funciona:
+
+```{r, eval=FALSE}
+XsumY(3,10)
+```
+
+
+Algún input puede tener un valor _default_:
+```{r, eval=FALSE}
+riseToPower=function(base,exponent=2){
+  #####
+  result=1
+  if (exponent > 0){
+    for (time in 1:exponent){
+      result=result*base
+    }
+  }
+  #####
+  return(result)
+}
+```
+
+Vemos cómo funciona:
+
+```{r, eval=FALSE}
+riseToPower(9)
+riseToPower(9,3)
+riseToPower(9,0)
+```
+
+Nota aqui unas diferencias:
+
+```{r, eval=FALSE}
+# quizas esto es mas claro:
+riseToPower(base=9,exponent=0)
+# con argumentos explicitos no se require orden
+riseToPower(exponent=0,base=9)
+```
+
+
+Siempre hay que estar listo para saber qué hacer ante posibles cálculos; para evitar ello:
+```{r FUN-divRounded}
+divRounded=function(numerator,denominator,precision=2){
+    if (denominator==0){
+      return('0 en el denominador')
+    }else{
+    result = numerator/denominator
+    return (round(result, precision))}
+}
+```
+
+Testing this function:
+```{r, eval=FALSE}
+n=13
+d=12
+p=3
+divRounded(n,d,p)
+
+```
+
+Podemos preparar una lista como input e ingresarla a la función con la ayuda de **do.call**:
+
+```{r, eval=FALSE}
+inputArgs=list(precision=3,numerator=13,denominator=12)
+do.call(divRounded,inputArgs)
+```
+
+
+[Ir al inicio](#beginning)
+
+____
+<a id='part2'></a>
+
+## La Output
+
+El output no tiene que ser un único valor:
+
+```{r, eval=FALSE}
+factors=function(number){
+  vectorOfAnswers=c() # para guardar respuestas
+  for (i in 1:number){
+    #si el residuo de 'number'/'i' es igual a cero...
+    if ((number %% i) == 0){ 
+      # ...añade 'i' a la respuesta!
+      vectorOfAnswers=c(vectorOfAnswers,i)
+    }
+  }
+  return (vectorOfAnswers) 
+}
+```
+
+Testing:
+```{r, eval=FALSE}
+factors(20) 
+```
+
+[Ir al inicio](#beginning)
+
+____
+<a id='part3'></a>
+
+## Aplicando funciones a estructuras simples
+
+Creemos una función:
+```{r, eval=FALSE}
+double=function(x){
+    return (2*x)}
+```
+
+Creemos un vector:
+
+```{r, eval=FALSE}
+myVector=c(1,2,3)
+```
+
+¿Qué sale de aquí?
+```{r, eval=FALSE}
+double(myVector)
+```
+
+La función aplicada a un vector, aplica la transformación a cada elemento.
+
+Pero esto te da error:
+```{r, eval=FALSE}
+myList=list(1,2,3)
+double(myList)
+```
+
+Aquí lo importante es saber aplicar la función según el tipo de input. Usemos **Map**, con vectores:
+
+```{r, eval=FALSE}
+Map(double,myVector) # devuelte lista
+```
+
+con Lista:
+
+```{r, eval=FALSE}
+Map(double,myList) # devuelte lista
+```
+
+Tenemos también **mapply**. Aquí con vector:
+
+```{r, eval=FALSE}
+mapply(double,myVector)
+```
+
+Aquí con lista:
+```{r, eval=FALSE}
+mapply(double,myList)
+```
+
+Nota que la estructura de la output es distinta.
+
+
+
+
+[Ir al inicio](#beginning)
+
+____
+<a id='part4'></a>
+
+## Aplicando funciones a estructuras compuestas
+
+Creemos un data frame:
+
+```{r, eval=FALSE}
+numberA=c(10,20,30,40,50)
+numberB=c(6,7,8,9,10)
+dataDF=data.frame(numberA,numberB)
+dataDF
+```
+
+Antes de transformar el DF, haré una copia:
+```{r, eval=FALSE}
+dataDF2=dataDF  
+
+# aqui está la copia
+dataDF2
+```
+
+Apliquemos la función _double_ a cada elemento de la copia:
+
+```{r, eval=FALSE}
+for (column in 1:ncol(dataDF2)){
+ for (row in 1:nrow(dataDF2[column])){
+   dataDF2[row,column]=double(dataDF2[row,column])
+ }
+}
+
+# updated:
+dataDF2
+```
+
+La copia tiene nuevos valores, pero el original sigue igual:
+```{r, eval=FALSE}
+dataDF
+```
+
+Ahora, apliquemos la función directamente al df:
+
+```{r, eval=FALSE}
+double(dataDF)
+```
+
+Esta sería otra alternativa, pero el resultado no es un df:
+
+```{r, eval=FALSE}
+lapply(dataDF,double)
+```
+
+Para que el resultado no sea en lista::
+```{r, eval=FALSE}
+as.data.frame(lapply(dataDF,double))
+```
+
+
+
+Hay funciones que se pueden aplicar a filas o columnas.
+```{r, eval=FALSE}
+
+# se aplica por sólo por columnas:
+as.data.frame(lapply(dataDF,sum))
+```
+
+Para aplicar por fila o columna tenemos **apply**:
+```{r, eval=FALSE}
+# por fila
+apply(dataDF,1,sum) 
+```
+
+```{r, eval=FALSE}
+# por columna
+apply(dataDF,2,sum) 
+```
+
+_____
+
+* [Go to page beginning](#beginning)
+* [Go to PART A: Data Structures in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2A_IntroToProgramming_dataStructures.html)
+* [Go to PART B: Control of Execution in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2B_IntroToProgramming_controlExecution.html)
+* [Go to Course schedule](https://evansdatascience.github.io/GovernanceAnalytics/)
+
+_____
+
+**AUSPICIO**: 
+
+El desarrollo de estos contenidos ha sido posible gracias al grant del Berkeley Initiative for Transparency in the Social Sciences (BITSS) at the Center for Effective Global Action (CEGA) at the University of California, Berkeley
+
+
+<center>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoBitss.jpg" style="width: 300px;"/>
+</center>
+
+**RECONOCIMIENTO**
+
+<!--
+EL Dr. Magallanes agradece a la Pontificia Universidad Católica del Perú, por su apoyo en la elaboración de este trabajo.
+
+<center>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoPUCP.jpg" style="width: 200px;"/>
+</center>
+-->
+
+El autor reconoce el apoyo que el eScience Institute de la Universidad de Washington le ha brindado desde el 2015 para desarrollar su investigación en Ciencia de Datos.
+
+<center>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/LogoES.png" style="width: 300px;"/>
+</center>
+
+<br>
+<br>

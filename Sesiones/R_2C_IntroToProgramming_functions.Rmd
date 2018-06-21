@@ -1,0 +1,327 @@
+<br> 
+<center><img src="http://i.imgur.com/sSaOozN.png" width="500"></center>
+
+## Course: Computational Thinking for Governance Analytics
+### Prof. José Manuel Magallanes, PhD 
+
+_____
+
+# Session 2: Introduction to Programming in R
+## Part C: Building functions in R
+
+<a id='beginning'></a>
+
+
+We build functions to make the code more readable. Functions plus the data structures and control of execution capabilities you saw before will give you the basic tools you need to develop programs. 
+
+A function is a three-step process: Input, Transformation, Output. For example, if you need to convert a numeric value from Fahrenheit into Celsius , the input is the value in Fahrenheit, the transformation is the formula, and the output the result of the formula (a value in Celsius).
+
+```{r funcBasic, eval=FALSE}
+converterToCelsius=function(valueInFarenheit){ #input
+  #transformation
+  resultInCelsius= (valueInFarenheit-32)*5/9
+  #output
+  return (resultInCelsius)}
+```
+
+A function has a name (for example: _converterToCelsius_) to the left of the **=**, then _a definition of the input of the function_ using the reserved word **function**, the _process_ between **{}**; the process  _output_ (for example: _resultInCelsius_), which requires the keyword **return** and **()**. You can omit the _return_ command and a function still works; in that case, R will output the last line that was **executed**; I avoid doing that as it impoverishes reading the code. Above, we created a function, and after running it,  R has a new function available:
+
+```{r funcBasicUse, eval=FALSE}
+converterToCelsius(100)
+```
+
+This session will be organized on the following topics:
+
+1. [Input components.](#part1) 
+2. [Output organization.](#part2) 
+3. Applying functions
+    + [to simple structures.](#part3) 
+    + [to composite structures.](#part4) 
+
+____
+<a id='part1'></a>
+
+## The function input
+
+We control the amount of input in a function:
+```{r, eval=FALSE}
+# this function requires TWO inputs:
+XsumY=function(valueX,valueY){
+  ###
+  resultSum=valueX+valueY
+  ###
+  return (resultSum)
+}
+```
+
+
+The code above receives two values and outputs their sum. You can see how it works this way:
+```{r, eval=FALSE}
+XsumY(3,10)
+```
+
+
+You can have some inputs with _default_ values:
+```{r, eval=FALSE}
+riseToPower=function(base,exponent=2){
+  #####
+  result=1
+  if (exponent > 0){
+    for (time in 1:exponent){
+      result=result*base
+    }
+  }
+  #####
+  return(result)
+}
+```
+
+Since you have a default value in the input arguments, you decide if you give that input or not. Let's see how it works:
+```{r, eval=FALSE}
+riseToPower(9)
+riseToPower(9,3)
+riseToPower(9,0)
+# for sure you can use the argument name:
+riseToPower(base=9,exponent=0)
+# using arguments names does not require order:
+riseToPower(exponent=0,base=9)
+```
+
+
+
+Functions need argument names in the input definition, but if you have many arguments, you need to keep the order. First, let's find out what happens when dividing a number by zero:
+```{r, eval=FALSE}
+3/0
+```
+
+Then,
+```{r FUN-divRounded}
+# Then
+divRounded=function(numerator,denominator,precision=2){
+    if (denominator==0){
+      return('You can not use 0 as the denominator')
+    }
+    result = numerator/denominator
+    return (round(result, precision))
+}
+```
+
+Testing this function:
+```{r, eval=FALSE}
+n=13
+d=12
+p=3
+divRounded(n,d,p)
+
+```
+
+A different approach would be to use a list or a vector of arguments, with the help of the command **do.call**:
+```{r, eval=FALSE}
+#using list:
+inputArgs=list(precision=3,numerator=13,denominator=12)
+do.call(divRounded,inputArgs)
+
+#using vectors:
+inputArgs=c(denominator=12,numerator=13,precision=3) 
+do.call(divRounded,as.list(inputArgs)) 
+```
+
+The command _do.call_ requires a _list of arguments_, so if you have a vector of arguments, you use the command **as.list** to get a list from a vector. Notice that in the example above I used _named_ elements in the vector and in the list. In that situation, you can shuffle the order of the elements at will. But if you OMIT the names, you will get different results if you shuffle the input; in that case, you need to respect the original order of the arguments as they were defined in the function.
+
+[Go to page beginning](#beginning)
+
+____
+<a id='part2'></a>
+
+## The function output
+
+Our output has been a single value, but it can be several ones; however, you need the right structure.
+
+```{r, eval=FALSE}
+# one input, and several output in simple data structure:
+factors=function(number){
+  vectorOfAnswers=c() # empty vector that will collect output
+  for (i in 1:number){
+    #if the remainder of 'number'/'i' equals zero...
+    if ((number %% i) == 0){ 
+      # ...add 'i' to the vector of factors!
+      vectorOfAnswers=c(vectorOfAnswers,i)
+    }
+  }
+  return (vectorOfAnswers) # returning  the vector
+}
+```
+
+Testing:
+```{r, eval=FALSE}
+factors(20) 
+```
+
+[Go to page beginning](#beginning)
+
+____
+<a id='part3'></a>
+
+## Applying functions to simple structures
+
+Imaging you have created a function that converts a value like:
+```{r, eval=FALSE}
+double=function(x){
+    return (2*x)}
+```
+
+and you have this vector:
+
+```{r, eval=FALSE}
+myVector=c(1,2,3)
+```
+
+What can you get here?
+```{r, eval=FALSE}
+double(myVector)
+```
+
+If you use a vector as an input in a function in R, R will apply the function to each element. If you use a list of numbers as input, you get an error. If you want to follow a different path, you can use **Map** or **mapply**:
+```{r, eval=FALSE}
+# Map returns a list, and the input can be a vector or a list
+Map(double,myVector)
+
+# mapply returns a vector, and the input can be a vector or a list
+mapply(double,myVector)
+```
+
+There are functions that serve to apply filters. Let me create a function that returns TRUE or FALSE for ONE numeric value representing 'age':
+```{r, eval=FALSE}
+drinkingAge= function(age){ 
+  if (age >= 21){
+    return (TRUE)
+  }else{
+  return (FALSE)}
+}
+```
+
+When you create a function that returns TRUE of FALSE, you can use it with the command FILTER with it:
+```{r, eval=FALSE}
+###
+agesVals=c(12,34,56,19,24,3)
+Filter(drinkingAge,agesVals)
+```
+In the last line above, you _filtered_ the original vector _agesVals_ by combining _Filter_ and _drinkingAge_, the filtering works as it will select the values that have TRUE in the output of _drinkingAge_; if you simply use the function _drinkingAge_, this is what you get:
+```{r, eval=FALSE}
+drinkingAge(agesVals)
+```
+
+This last function could have been written differently:
+```{r, eval=FALSE}
+
+drinkingAge= function(age){ 
+  return (age >= 21)
+}
+```
+It works because it is the comparison '>=' that produces TRUE or FALSE. 
+
+You can play safe doing:
+```{r,eval=FALSE}
+goodAges=c()
+for(value in agesVals){
+  if (drinkingAge(value)){
+    goodAges=c(goodAges,value)
+  }
+}
+```
+And _goodAges_ have the result:
+```{r, eval=FALSE}
+goodAges
+```
+
+In this case, you are sure the function is applied element by element. You can work either way, considering what is easy for you to understand, for your colleagues to understand when you share, and also what strategy comes faster to your mind: maybe using loops requires more lines of code, but less time of imagination. 
+
+
+[Go to page beginning](#beginning)
+
+____
+<a id='part4'></a>
+
+## Applying functions to composite structures
+
+We will be using data frames often. This is a particular structure that has its owns mechanism to apply functions:
+
+```{r, eval=FALSE}
+numberA=c(10,20,30,40,50)
+numberB=c(6,7,8,9,10)
+dataDF=data.frame(numberA,numberB)
+dataDF
+```
+
+Let's _double_ each value.Let me here make a copy of my data frame:
+```{r, eval=FALSE}
+# use a copy of the orginal
+dataDF2=dataDF  
+
+# see the copy
+dataDF2
+```
+
+Now that I got a copy, let me use loops in that copy:
+```{r, eval=FALSE}
+for (column in 1:ncol(dataDF2)){
+ for (row in 1:nrow(dataDF2[column])){
+   dataDF2[row,column]=double(dataDF2[row,column])
+ }
+}
+
+# updated:
+dataDF2
+```
+The copy has new values, but my original stays the same:
+```{r, eval=FALSE}
+dataDF
+```
+
+Now, let me apply the function _directly_ to the data frame:
+```{r, eval=FALSE}
+double(dataDF)
+```
+I _see_ the result of 'doubling' the data frame, but the data frame is still unchanged:
+```{r, eval=FALSE}
+dataDF
+```
+If you need the data frame to change, you need to do this:
+```{r, eval=FALSE}
+dataDF=double(dataDF)
+# now see it:
+dataDF
+
+# recreating the data frame:
+dataDF=data.frame(numberA,numberB)
+```
+
+As you saw above, the function _double_ was designed to receive as input a simple value (a number). Then, without effort from your side, R itself decided to apply it to each element in the data frame. You can put more effort on your side, and be more explicit; for that you need to use **lapply**:
+```{r, eval=FALSE}
+lapply(dataDF,double)
+# remember you are SEEING the result, but no changes to the orginal data frame!
+```
+This last function is extremely important. We got lists as output, but we can easily get the data frame:
+```{r, eval=FALSE}
+as.data.frame(lapply(dataDF,double))
+```
+The function **lapply** will apply the function to _each column_ of the data frame.  
+
+There are functions that could be applied to columns or rows, keep in mind that **lapply** applies a function to column.
+```{r, eval=FALSE}
+# you are adding the column values here:
+as.data.frame(lapply(dataDF,sum))
+```
+If you need to apply a function by row or by column, the right option is **apply**:
+```{r, eval=FALSE}
+# you are adding by row:
+apply(dataDF,1,sum) # 1 to apply by row (2 for column).
+```
+
+
+_____
+
+* [Go to page beginning](#beginning)
+* [Go to PART A: Data Structures in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2A_IntroToProgramming_dataStructures.html)
+* [Go to PART B: Control of Execution in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2B_IntroToProgramming_controlExecution.html)
+* [Go to Course schedule](https://evansdatascience.github.io/GovernanceAnalytics/)
