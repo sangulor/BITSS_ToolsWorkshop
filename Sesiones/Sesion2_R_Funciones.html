@@ -131,156 +131,173 @@ Herramientas Computacionales <br />para la Investigación Interdisciplinaria Rep
 <div id="sesion-2-introduccion-al-r" class="section level2">
 <h2>Sesión 2: Introducción al R</h2>
 </div>
-<div id="part-b-control-de-ejecucion" class="section level2">
-<h2>Part B: Control de Ejecución</h2>
+<div id="part-c-funciones" class="section level2">
+<h2>Part C: Funciones</h2>
 <p><a id="beginning"></a></p>
-<p>En esta parte veremos 3 esquemas:</p>
+<p>Las funciones nos ayudan a organizar código que cumple un ‘rol’ específico. Así, se facilita la lectura y corrección del mismo, al crear elementos independientes. Así mismo, usando funciones verás como integrar lo visto en las secciones anteriores.</p>
+<p>Veremos tres elementos organizadores: input, transformación, output. Por ejemplo, si necesitas convertir un valor numérico de Fahrenheit en Celsius, el input is el valor en Fahrenheit, la transformación es la formula, y la output es el resultado en Celsius (u otro que corresponda).</p>
+<pre class="r"><code># ejecutar
+converterToCelsius=function(valueInFarenheit){ #input
+  #transformacion
+  resultInCelsius= (valueInFarenheit-32)*5/9
+  #output
+  return (resultInCelsius)
+  }</code></pre>
+<p>Del ejemple anterior, veamos la sintaxis de una función. El primer element es el nombre (<em>converterToCelsius</em>) a la izquierda de <strong>=</strong>; luego el <em>input</em>, que es un detalla de lo que la función espera se ingrese usando la palabra reservada <strong>function</strong>; de ahí, la <em>transformación</em> se escribirá dentro de los <strong>{}</strong>; la última fila de la transformación tiene devuelve la <em>output</em> (for example: <em>resultInCelsius</em>), para lo cual se usa la palabra clave <strong>return</strong>. Si escribes sólo la <em>output</em> sin usar el comando <em>return</em> la función aun funciona, pero disminuye su <em>readability</em>. El código ejemplo le ha dado una nueva función a R:</p>
+<pre class="r"><code>converterToCelsius(100)</code></pre>
+<p>He organizado los materiales de la siguiente manera:</p>
 <ol style="list-style-type: decimal">
-<li><a href="#part1">Ejecución Condicional.</a></li>
-<li><a href="#part2">Loops.</a></li>
-<li><a href="#part3">Manejo de Errores.</a></li>
+<li><a href="#part1">Input.</a></li>
+<li><a href="#part2">Output.</a></li>
+<li>Aplicando funciones
+<ul>
+<li><a href="#part3">a estructuras simples.</a></li>
+<li><a href="#part4">a estructuras compuestas.</a></li>
+</ul></li>
 </ol>
 <hr />
 <p><a id="part1"></a></p>
 </div>
-<div id="ejecucion-condicional." class="section level2">
-<h2>Ejecución Condicional.</h2>
-<p>Es la situación donde el programa ejecuta alguna sección del código, dependiendo si alguna condición se cumple o no:</p>
-<pre class="r"><code>value=-100
-
-#condicion
-if (value &gt;= 0){ 
-  # si es Verdadero
-  rootValue=sqrt(value)
-  print (rootValue)
-} else {  
-  # si es Falso
-  print('Lo lamento, no calculo raíces cuadradas de números negativos')
+<div id="el-input" class="section level2">
+<h2>El Input</h2>
+<p>El input no tiene que ser sólamente <em>uno</em>:</p>
+<pre class="r"><code># 2 inputs:
+XsumY=function(valueX,valueY){
+  ###
+  resultSum=valueX+valueY
+  ###
+  return (resultSum)
 }</code></pre>
-<p>Nótese el uso <strong>parentesis</strong> en la condición. Además, el uso de <strong>{}</strong> para identificar secciones de comandos (opcional aquí por haber una sola linea de comando). Sin la sección del <strong>else{}</strong> el programa funciona, pero no habrá mensaje de por qué no hay resultado mostrado.</p>
-<p><a href="#beginning">Ir a inicio</a></p>
+<p>Veamos cómo funciona:</p>
+<pre class="r"><code>XsumY(3,10)</code></pre>
+<p>Algún input puede tener un valor <em>default</em>:</p>
+<pre class="r"><code>riseToPower=function(base,exponent=2){
+  #####
+  result=1
+  if (exponent &gt; 0){
+    for (time in 1:exponent){
+      result=result*base
+    }
+  }
+  #####
+  return(result)
+}</code></pre>
+<p>Vemos cómo funciona:</p>
+<pre class="r"><code>riseToPower(9)
+riseToPower(9,3)
+riseToPower(9,0)</code></pre>
+<p>Nota aqui unas diferencias:</p>
+<pre class="r"><code># quizas esto es mas claro:
+riseToPower(base=9,exponent=0)
+# con argumentos explicitos no se require orden
+riseToPower(exponent=0,base=9)</code></pre>
+<p>Siempre hay que estar listo para saber qué hacer ante posibles cálculos; para evitar ello:</p>
+<pre class="r"><code>divRounded=function(numerator,denominator,precision=2){
+    if (denominator==0){
+      return('0 en el denominador')
+    }else{
+    result = numerator/denominator
+    return (round(result, precision))}
+}</code></pre>
+<p>Probando:</p>
+<pre class="r"><code>n=13
+d=12
+p=3
+divRounded(n,d,p)</code></pre>
+<p>Podemos preparar una lista como input e ingresarla a la función con la ayuda de <strong>do.call</strong>:</p>
+<pre class="r"><code>inputArgs=list(precision=3,numerator=13,denominator=12)
+do.call(divRounded,inputArgs)</code></pre>
+<p><a href="#beginning">Ir al inicio</a></p>
 <hr />
 <p><a id="part2"></a></p>
 </div>
-<div id="loops" class="section level2">
-<h2>Loops</h2>
-<p>Aquí le dices a la computadora cómo hacer algo muchas veces; así como indicarle cuándo dejara de hacerlo:</p>
-<pre class="r"><code>values=c(9,25,100)
-for (value in values){ # mientras hayan valores en 'values'
-  print(sqrt(value))
+<div id="la-output" class="section level2">
+<h2>La Output</h2>
+<p>La output no tiene que ser un único valor:</p>
+<pre class="r"><code>factors=function(number){
+  vectorOfAnswers=c() # para guardar respuestas
+  for (i in 1:number){
+    #si el residuo de 'number'/'i' es igual a cero...
+    if ((number %% i) == 0){ 
+      # ...añade 'i' a la respuesta!
+      vectorOfAnswers=c(vectorOfAnswers,i)
+    }
+  }
+  return (vectorOfAnswers) 
 }</code></pre>
-<p>Arriba, el código muestra el resultado, pero si deseas sólo guardalo:</p>
-<pre class="r"><code>values=c(9,25,100)
-rootValues=c() # creando vector vacío
-
-for (value in values){
-  rootValues=c(rootValues,sqrt(value)) # actualizando vector
-}
-# si quieres verlos:
-rootValues</code></pre>
-<p>Es evidente que si combinamos <em>for</em> e <em>if-else</em> tendremos mejores programas:</p>
-<pre class="r"><code>values=c(9,25,-100,144,-72)
-rootValues=c()
-for (value in values){
-  if (value &gt;=0){
-    rootValues=c(rootValues,sqrt(value))
-  }else {
-    print(&quot;Puse un NaN, lo verás luego...&quot;)
-    rootValues=c(rootValues,NaN)
-  }
-}
-# to see the results:
-rootValues</code></pre>
-<p>Si deseas detener la ejecución, usa <strong>break</strong>:</p>
-<pre class="r"><code>values=c(9,25,-100,144,-72)
-rootValues=c()
-for (value in values){
-  if (value &lt;0){
-    print('Mejor me detengo, se ha ingresado un valor inválido')
-    break
-  }
-  rootValues=c(rootValues,sqrt(value))
-}
-rootValues</code></pre>
-<p>El comando <strong>next</strong> puede ser útil para usar toda la data aun cuando hay errores:</p>
-<pre class="r"><code>values=list(9,NA,NaN,Inf,'1000',-100,144,-72)
-for (value in values){
-  if (is.na(value)){
-    print('Encontré un NA o NaN...no haré nada')
-    next
-  }
-  
-  if (is.infinite(value)){
-    print('Encontré un Inf...no haré nada')
-    next
-  }
-  if (value &lt;0){
-    print('Encontré un negativo...no haré nada')
-    next
-  }
-  
-  if (is.character(value)){
-    print('Encontré un texto...no haré nada')
-    next
-  }
-  rootVal=sqrt(value)
-  print(paste(rootVal,'es la raíz de ',value))
-}</code></pre>
-<p>Note las diferencias para valores no numéricos:</p>
-<pre class="r"><code>0/0 # no es NA, sino NaN</code></pre>
-<pre class="r"><code>1/0 # no es NaN, sino Inf</code></pre>
-<p>A veces, quieres contar un valor particular:</p>
-<pre class="r"><code>values=c(9,25,-100,144,-72)
-counterOfInvalids=0 # el contador se inicializa
-for (value in values){
-  if (value &lt; 0){
-    counterOfInvalids=counterOfInvalids+1 #incrementando contador
-  }
-}
-
-# ver:
-
-counterOfInvalids</code></pre>
-<p>Este código te enseña a guardar posiciones:</p>
-<pre class="r"><code>values=c(9,25,-100,144,-72)
-positionInvalids=c()
-currentPosition=1  # posición inicial (de arranque)
-for (value in values){
-  if (value &lt; 0){
-    positionInvalids=c(positionInvalids,currentPosition)
-  }
-  currentPosition=currentPosition+1 # atención dónde pones esto!
-}
-positionInvalids 
-
-# a ver:
-values[positionInvalids]</code></pre>
-<p><a href="#beginning">Ir a inicio</a></p>
+<p>Probando:</p>
+<pre class="r"><code>factors(20) </code></pre>
+<p><a href="#beginning">Ir al inicio</a></p>
 <hr />
 <p><a id="part3"></a></p>
 </div>
-<div id="manejo-de-errores" class="section level2">
-<h2>Manejo de errores</h2>
-<p>Hemos controlado errores antes con <em>if-else</em>; veamos unas situaciones alternativas.</p>
-<p>Primero los casos:</p>
-<pre class="r"><code>sqrt(-10)  #NaN es el resultado</code></pre>
-<pre class="r"><code>sqrt('10') # no lo puede ejecutar</code></pre>
-<p>Veamos:</p>
-<pre class="r"><code>value =-100
+<div id="aplicando-funciones-a-estructuras-simples" class="section level2">
+<h2>Aplicando funciones a estructuras simples</h2>
+<p>Creemos una función:</p>
+<pre class="r"><code>double=function(x){
+    return (2*x)}</code></pre>
+<p>Creemos un vector:</p>
+<pre class="r"><code>myVector=c(1,2,3)</code></pre>
+<p>¿Qué sale de aquí?</p>
+<pre class="r"><code>double(myVector)</code></pre>
+<p>La función aplicada a un vector, aplica la transformación a cada elemento.</p>
+<p>Pero esto te da error:</p>
+<pre class="r"><code>myList=list(1,2,3)
+double(myList)</code></pre>
+<p>Aquí lo importante es saber aplicar la función según el tipo de input. Usemos <strong>Map</strong>, con vectores:</p>
+<pre class="r"><code>Map(double,myVector) # devuelte lista</code></pre>
+<p>con Lista:</p>
+<pre class="r"><code>Map(double,myList) # devuelte lista</code></pre>
+<p>Tenemos también <strong>mapply</strong>. Aquí con vector:</p>
+<pre class="r"><code>mapply(double,myVector)</code></pre>
+<p>Aquí con lista:</p>
+<pre class="r"><code>mapply(double,myList)</code></pre>
+<p>Nota que la estructura de la output es distinta.</p>
+<p><a href="#beginning">Ir al inicio</a></p>
+<hr />
+<p><a id="part4"></a></p>
+</div>
+<div id="aplicando-funciones-a-estructuras-compuestas" class="section level2">
+<h2>Aplicando funciones a estructuras compuestas</h2>
+<p>Creemos un data frame:</p>
+<pre class="r"><code>numberA=c(10,20,30,40,50)
+numberB=c(6,7,8,9,10)
+dataDF=data.frame(numberA,numberB)
+dataDF</code></pre>
+<p>Antes de transformar el DF, haré una copia:</p>
+<pre class="r"><code>dataDF2=dataDF  
 
-tryCatch(
-  #parte 1: si no hay problema
-  print(sqrt(value)),
-  #part 2: si se ejecuta con advertencia
-  warning = function(w) {print(paste(value, &quot;valor equivocado!&quot;))},
-  #part 3: se nos da error
-  error = function(e) {print(paste(value,&quot;se recibió texto!&quot;))} 
-  )</code></pre>
+# aqui está la copia
+dataDF2</code></pre>
+<p>Apliquemos la función <em>double</em> a cada elemento de la copia:</p>
+<pre class="r"><code>for (column in 1:ncol(dataDF2)){
+ for (row in 1:nrow(dataDF2[column])){
+   dataDF2[row,column]=double(dataDF2[row,column])
+ }
+}
+
+# updated:
+dataDF2</code></pre>
+<p>La copia tiene nuevos valores, pero el original sigue igual:</p>
+<pre class="r"><code>dataDF</code></pre>
+<p>Ahora, apliquemos la función directamente al df:</p>
+<pre class="r"><code>double(dataDF)</code></pre>
+<p>Esta sería otra alternativa, pero el resultado no es un df:</p>
+<pre class="r"><code>lapply(dataDF,double)</code></pre>
+<p>Para que el resultado no sea en lista::</p>
+<pre class="r"><code>as.data.frame(lapply(dataDF,double))</code></pre>
+<p>Hay funciones que se pueden aplicar a filas o columnas.</p>
+<pre class="r"><code># se aplica por sólo por columnas:
+as.data.frame(lapply(dataDF,sum))</code></pre>
+<p>Para aplicar por fila o columna tenemos <strong>apply</strong>:</p>
+<pre class="r"><code># por fila
+apply(dataDF,1,sum) </code></pre>
+<pre class="r"><code># por columna
+apply(dataDF,2,sum) </code></pre>
 <hr />
 <ul>
-<li><a href="#beginning">Ir a inicio</a></li>
-<li><a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html">Ir a parte A: Estructura de Datos en R R</a></li>
-<li><a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_Funciones.html">Ir a parte C: Funciones en R</a></li>
+<li><a href="#beginning">Ir al inicio</a></li>
+<li><a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_ControlDeEjecucion.html">Ir a parte B: Control de Ejecución en R</a></li>
 <li><a href="https://magallanesjosemanuel.github.io/BITSS_ToolsWorkshop/">Menú Principal</a></li>
 </ul>
 <hr />

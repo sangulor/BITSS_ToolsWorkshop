@@ -110,7 +110,7 @@ divRounded=function(numerator,denominator,precision=2){
 }
 ```
 
-Testing this function:
+Probando:
 ```{r, eval=FALSE}
 n=13
 d=12
@@ -134,7 +134,7 @@ ____
 
 ## La Output
 
-El output no tiene que ser un único valor:
+La output no tiene que ser un único valor:
 
 ```{r, eval=FALSE}
 factors=function(number){
@@ -150,7 +150,7 @@ factors=function(number){
 }
 ```
 
-Testing:
+Probando:
 ```{r, eval=FALSE}
 factors(20) 
 ```
@@ -296,10 +296,9 @@ apply(dataDF,2,sum)
 
 _____
 
-* [Go to page beginning](#beginning)
-* [Go to PART A: Data Structures in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2A_IntroToProgramming_dataStructures.html)
-* [Go to PART B: Control of Execution in R](https://rawgit.com/EvansDataScience/govanalyticsweb/master/R/R_2B_IntroToProgramming_controlExecution.html)
-* [Go to Course schedule](https://evansdatascience.github.io/GovernanceAnalytics/)
+* [Ir al inicio](#beginning)
+* [Ir a parte B: Control de Ejecución en R](https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_ControlDeEjecucion.html)
+* [Menú Principal](https://magallanesjosemanuel.github.io/BITSS_ToolsWorkshop/)
 
 _____
 
