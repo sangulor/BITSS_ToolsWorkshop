@@ -61,9 +61,19 @@ Considera además que tantas idas y venidas durante el proceso de investigación
 
 - **GitHub**, para organizar todos los archivos. GitHub guardará en la nube todo el trabajo, incluyendo datos, códigos, imagenes, citas, documento integrador, y similares. Para usar GitHub, debes crear una cuenta [aquí](https://github.com/), luego descarga el *cliente* para tu computadora en este [enlace](https://desktop.github.com/).
 
-- **R**, En este curso desarrollaremos diversas técnicas en R. Descarga R desde este [enlace](https://cran.r-project.org/). Una vez descargado e instalado, debes instalar RStudio dede [aquí](https://www.rstudio.com/products/rstudio/download/#download). RStudio es una interfaz gráfica para R, y nos servirá para crear nuestros programas y el documento integrador.
+- **R**, En este curso desarrollaremos diversas técnicas en R. Descarga R desde este [enlace](https://cran.r-project.org/). Una vez descargado e instalado, debes instalar RStudio desde [aquí](https://www.rstudio.com/products/rstudio/download/#download). RStudio es una interfaz gráfica para R, y nos servirá para crear nuestros programas y el documento integrador.
 
-- **Latex** servirá para redactar el documento en RStudio. Según seas usuario de Mac o Windows, debes descargarlo desde este [enlace](https://www.latex-project.org/get/).
+- **Latex** servirá para redactar el documento en RStudio. Según seas usuario de Mac o Windows, debes descargarlo desde este [enlace](https://www.latex-project.org/get/). Para los que están usando **Windows**, se recomienda descargar **Miktex**. Al ejecutar el instalador básico recuerda instalar todos los paquetes faltantes, para ello selecciona la opción **yes** en esta ventana:
+
+
+<center>
+<img src="https://github.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/raw/master/miktex0.png" style="width: 400px;"/>
+</center>
+
+
+
+
+
 
 - **Anaconda** es una suite de aplicaciones para utilizar Python. La instalación de Anaconda facilitará el uso de Python, en particular Jupyter, en donde usaremos markdown para crear documentos tipo blog. Puedes descargarlo desde este [enlace](https://www.anaconda.com/download/).
 
