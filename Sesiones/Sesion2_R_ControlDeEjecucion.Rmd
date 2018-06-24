@@ -218,7 +218,7 @@ tryCatch(
 _____
 
 * [Ir a inicio](#beginning)
-* [Ir a parte A: Estructura de Datos en R R](https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html)
+* [Ir a parte A: Estructura de Datos en R](https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html)
 * [Ir a parte C: Funciones en R](https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_Funciones.html)
 * [Menú Principal](https://magallanesjosemanuel.github.io/BITSS_ToolsWorkshop/)
 
