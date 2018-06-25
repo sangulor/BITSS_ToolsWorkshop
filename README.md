@@ -83,12 +83,12 @@ ____
     <td>Presentación de Modelo de investigación
 </td>
 
-<td rowspan="2">Material</td>
 
-<!--
+
+
 <td rowspan="2"> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion1_Modelo.html" target="_blank">GUIA</a> 
 </td>
--->
+
 </tr>
 
 <td>Instalación de Programas y creación de cuentas</td>
