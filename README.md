@@ -98,11 +98,12 @@ ____
     <td rowspan="3">Programación Reproducible</td>
     <td>Estructura de Datos</td>
 <td rowspan="3">Material:
-*R<br>
+*R
 <!--
 <td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">R</a> 
 </td>
 -->
+<br>
 *Python
 <!--
 <td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">Python</a> 
