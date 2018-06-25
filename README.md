@@ -99,17 +99,10 @@ ____
     <td>Estructura de Datos</td>
 <td rowspan="3">Material:
 <br>
-*R
-<!--
-<td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">R</a> 
-</td>
--->
+<a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">*R</a> 
+
 <br>
-*Python
-<!--
-<td> <a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">Python</a> 
-</td>
--->
+<a href="https://rawgit.com/MAGALLANESJoseManuel/BITSS_ToolsWorkshop/master/Sesiones/Sesion2_R_EstructuraDeDatos.html" target="_blank">*Python</a> 
 </td>
 </tr>
 
